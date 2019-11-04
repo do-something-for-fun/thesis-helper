@@ -13,7 +13,8 @@
 1. 下载[压缩包](https://github.com/muhualing/thesis-helper/releases/download/v1.0/thesis-helper.zip)
 2. 解压缩
 3. 运行thesis-helper.exe
-4. 把pdf拖拽进来就可以了
+4. 把pdf拖拽进来
+5. 选中要翻译的文本，右键复制，然后侧边栏就有中文翻译结果了
 
 ### 源代码使用说明
 1. 把这个库里面的东西全下载到本地，然后再把目录下面的pdfjs-2.2.228-dist.zip解压一下

@@ -1,6 +1,6 @@
 import os, requests, uuid, json
 
-subscription_key = ''
+subscription_key = '32f1cb9c935a4cd4b33825e2869bff0f'
 
 def get_translation(text_input, language_output="zh-Hans"):
     base_url = 'https://api.cognitive.microsofttranslator.com'

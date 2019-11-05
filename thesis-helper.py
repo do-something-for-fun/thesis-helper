@@ -19,8 +19,7 @@ translate_res = None
 class PDFView(QWebEngineView):
     def __init__(self):
         super(PDFView, self).__init__()
-<<<<<<< HEAD:thesis-helper.py
-        # self.setAcceptDrops(True)
+        self.setAcceptDrops(True)
         pdf_js_path = "file:///" + os.path.join(os.getcwd(), "code", "web", "viewer.html")
         pdf_path = "file:///" + os.path.join(os.getcwd(), "sample", "sample.pdf")
         if sys.platform == "win32":
@@ -31,16 +30,6 @@ class PDFView(QWebEngineView):
     def change(self, pdf_js_path, pdf_path):
         self.load(QUrl.fromUserInput('%s?file=%s' % (pdf_js_path, pdf_path)))
 
-=======
-        self.setAcceptDrops(True)
-        self.pdf_js_path = "file:///" + os.path.join(os.getcwd(), "web", "viewer.html")
-        pdf_path = "file:///" + os.path.join(os.getcwd(), "..","sample","sample.pdf")
-        self.load(QUrl.fromUserInput('%s?file=%s' % (self.pdf_js_path, pdf_path)))
-
-    def change(self,pdf_path):
-        self.load(QUrl.fromUserInput('%s?file=%s' % (self.pdf_js_path, pdf_path)))
-
->>>>>>> b10b175536b528f1fbaa41083d6e47951e6d4361:code/thesis-helper.py
     def dragEnterEvent(self, e):
         e.accept()
 

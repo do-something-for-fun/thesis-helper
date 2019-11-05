@@ -18,9 +18,12 @@ translate_res = None
 class PDFView(QWebEngineView):
     def __init__(self):
         super(PDFView, self).__init__()
-        pdf_js_path = "file:///" + os.path.join(os.getcwd(),"web", "viewer.html")
+        pdf_js_path = "file:///" + os.path.join(os.getcwd(), "code", "web", "viewer.html")
+        print(os.getcwd())
+        print(pdf_js_path)
         pdf_path = ""
-        pdf_path = "file:///" + os.path.join(os.getcwd(), "../sample","sample.pdf")
+        pdf_path = "file:///" + os.path.join(os.getcwd(), "sample","sample.pdf")
+        print(pdf_path)
         pdf_js_path = pdf_js_path.replace('\\', '/')
         pdf_path = pdf_path.replace('\\', '/')
         self.load(QUrl.fromUserInput('%s?file=%s' % (pdf_js_path, pdf_path)))

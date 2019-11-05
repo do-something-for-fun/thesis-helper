@@ -25,6 +25,9 @@ class PDFView(QWebEngineView):
         pdf_path = pdf_path.replace('\\', '/')
         self.load(QUrl.fromUserInput('%s?file=%s' % (pdf_js_path, pdf_path)))
 
+    # def change(self,pdf_js_path,pdf_path):
+    #     self.load(QUrl.fromUserInput('%s?file=%s' % (pdf_js_path, pdf_path)))
+
 class MainWindow(QtWidgets.QMainWindow):
     def __init__(self):
         super(MainWindow, self).__init__()
@@ -50,6 +53,8 @@ class MainWindow(QtWidgets.QMainWindow):
         self.setCentralWidget(widget)
         self.showMaximized()
     
+        self.setAcceptDrops(True)
+
     def update(self, cur_text):
         self.translate_res.clear()
         self.translate_res.setText(cur_text)
@@ -57,8 +62,9 @@ class MainWindow(QtWidgets.QMainWindow):
     def closeEvent(self, event):
         con.closed.emit()  # 发出信号让子线程停止运行
 
+
 if __name__ == '__main__':
-    app = QtWidgets.QApplication(sys.argv)
+    app = QtWidgets.QApplication(sys.argv) 
     mainWindow = MainWindow()
     mainWindow.show()
     watch_clip_thread = WatchClip()

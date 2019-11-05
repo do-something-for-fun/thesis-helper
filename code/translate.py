@@ -21,7 +21,3 @@ def get_translation(text_input, language_output="zh-Hans"):
     response = requests.post(constructed_url, headers=headers, json=body)
     result = response.json()
     return result[0]['translations'][0]['text']
-if __name__ == "__main__":
-    result = get_translation("who is your daddy")
-    print(type(result))
-    print(result)

@@ -53,3 +53,18 @@ chmod a+x thesis-helper.py
 5. 把`pdf`拖拽进来
 6. 选中要翻译的文本，右键复制，然后侧边栏就有中文翻译结果了
 
+### 致谢
+感谢杨帅昊(QSCTech-Sange)、Wye(Lucas-Wye)、dendenxu和qiqiph对`thesis-helper`做出的贡献(提交过 Issue 或者 PR)。
+
+<a href="https://github.com/QSCTech-Sange">
+    <img src="https://avatars1.githubusercontent.com/u/33112139?s=460&amp;v=4" width="50px">
+</a> 
+<a href="https://github.com/Lucas-Wye">
+    <img src="https://avatars0.githubusercontent.com/u/30680577?s=400&v=4" width="50px">
+</a> 
+<a href="https://github.com/dendenxu">
+    <img src="https://avatars0.githubusercontent.com/u/43734697?s=400&v=4" width="50px">
+</a> 
+<a href="https://github.com/qiqiph">
+    <img src="https://avatars1.githubusercontent.com/u/37620794?s=400&v=4" width="50px">
+</a> 

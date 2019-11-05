@@ -4,8 +4,6 @@ __pycache__/
 *$py.class
 # C extensions
 *.so
-web/
-/pdfjs-2.2.228-dist/
 # Distribution / packaging
 .Python
 develop-eggs/

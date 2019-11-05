@@ -54,6 +54,8 @@ class MainWindow(QtWidgets.QMainWindow):
         self.translate_res.clear()
         self.translate_res.setText(cur_text)
 
+    def closeEvent(self,event):
+        sys.exit(app.exec_())
 
 if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)

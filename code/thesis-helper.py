@@ -18,9 +18,9 @@ translate_res = None
 class PDFView(QWebEngineView):
     def __init__(self):
         super(PDFView, self).__init__()
-        pdf_js_path = "file:///" + os.path.join(os.getcwd(), "pdfjs-2.2.228-dist", "web", "viewer.html")
+        pdf_js_path = "file:///" + os.path.join(os.getcwd(),"web", "viewer.html")
         pdf_path = ""
-        pdf_path = "file:///" + os.path.join(os.getcwd(), "sample.pdf")
+        pdf_path = "file:///" + os.path.join(os.getcwd(), "../sample","sample.pdf")
         pdf_js_path = pdf_js_path.replace('\\', '/')
         pdf_path = pdf_path.replace('\\', '/')
         self.load(QUrl.fromUserInput('%s?file=%s' % (pdf_js_path, pdf_path)))
@@ -28,7 +28,7 @@ class PDFView(QWebEngineView):
 class MainWindow(QtWidgets.QMainWindow):
     def __init__(self):
         super(MainWindow, self).__init__()
-        self.setWindowTitle("毕业论文小助手，有问题请联系https://github.com/muhualing/")
+        self.setWindowTitle("毕业论文小助手")
         global translate_res
         self.translate_res = QtWidgets.QTextEdit()
         self.translate_res.setStyleSheet("font: 14pt Roboto")
@@ -36,6 +36,7 @@ class MainWindow(QtWidgets.QMainWindow):
         vbox.addWidget(self.translate_res)
 
         gbox = QtWidgets.QGroupBox("中文翻译结果")
+        gbox.setStyleSheet("font: 12pt Roboto")
         gbox.setLayout(vbox)
         
         hBoxLayout = QHBoxLayout()
@@ -47,7 +48,6 @@ class MainWindow(QtWidgets.QMainWindow):
         widget = QWidget()
         widget.setLayout(hBoxLayout)
         self.setCentralWidget(widget)
-        # self.showFullScreen()  # 全屏显示，没有窗口
         self.showMaximized()
     
     def update(self, cur_text):

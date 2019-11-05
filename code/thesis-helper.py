@@ -18,15 +18,19 @@ translate_res = None
 class PDFView(QWebEngineView):
     def __init__(self):
         super(PDFView, self).__init__()
-        pdf_js_path = "file:///" + os.path.join(os.getcwd(), "code", "web", "viewer.html")
-        pdf_path = ""
-        pdf_path = "file:///" + os.path.join(os.getcwd(), "sample","sample.pdf")
-        pdf_js_path = pdf_js_path.replace('\\', '/')
-        pdf_path = pdf_path.replace('\\', '/')
-        self.load(QUrl.fromUserInput('%s?file=%s' % (pdf_js_path, pdf_path)))
+        self.setAcceptDrops(True)
+        self.pdf_js_path = "file:///" + os.path.join(os.getcwd(), "web", "viewer.html")
+        pdf_path = "file:///" + os.path.join(os.getcwd(), "..","sample","sample.pdf")
+        self.load(QUrl.fromUserInput('%s?file=%s' % (self.pdf_js_path, pdf_path)))
 
-    # def change(self,pdf_js_path,pdf_path):
-    #     self.load(QUrl.fromUserInput('%s?file=%s' % (pdf_js_path, pdf_path)))
+    def change(self,pdf_path):
+        self.load(QUrl.fromUserInput('%s?file=%s' % (self.pdf_js_path, pdf_path)))
+
+    def dragEnterEvent(self, e):
+        e.accept()
+
+    def dropEvent(self, e):
+        self.change(e.mimeData().text())
 
 class MainWindow(QtWidgets.QMainWindow):
     def __init__(self):
@@ -34,7 +38,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.setWindowTitle("毕业论文小助手")
         global translate_res
         self.translate_res = QtWidgets.QTextEdit()
-        self.translate_res.setStyleSheet("font: 14pt Roboto")
+        self.translate_res.setStyleSheet("font: 12pt Roboto")
         vbox = QVBoxLayout()
         vbox.addWidget(self.translate_res)
 
@@ -52,8 +56,6 @@ class MainWindow(QtWidgets.QMainWindow):
         widget.setLayout(hBoxLayout)
         self.setCentralWidget(widget)
         self.showMaximized()
-    
-        self.setAcceptDrops(True)
 
     def update(self, cur_text):
         self.translate_res.clear()

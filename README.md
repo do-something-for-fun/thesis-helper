@@ -18,5 +18,5 @@
 
 ### 源代码使用说明
 1. 把这个库里面的东西全下载到本地，然后再把目录下面的pdfjs-2.2.228-dist.zip解压一下
-2. 再运行`pip install PyQt5, pyperclip, requests, json, uuid`，安装一些python的包
-3. 再`python main.py`就启动了
+2. 命令行中运行`pip install -r requirements.txt`
+3. 命令行中运行`python main.py`就启动了

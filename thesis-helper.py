@@ -11,6 +11,7 @@ from PyQt5.QtCore import QUrl
 from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import (QWidget, QPushButton, 
     QHBoxLayout, QVBoxLayout, QApplication)
+sys.path.insert(1, os.path.join(os.getcwd(), "code"))
 from controller import con
 from watch_clip import WatchClip
 translate_res = None
@@ -18,15 +19,22 @@ translate_res = None
 class PDFView(QWebEngineView):
     def __init__(self):
         super(PDFView, self).__init__()
+        # self.setAcceptDrops(True)
         pdf_js_path = "file:///" + os.path.join(os.getcwd(), "code", "web", "viewer.html")
-        pdf_path = ""
-        pdf_path = "file:///" + os.path.join(os.getcwd(), "sample","sample.pdf")
-        pdf_js_path = pdf_js_path.replace('\\', '/')
-        pdf_path = pdf_path.replace('\\', '/')
+        pdf_path = "file:///" + os.path.join(os.getcwd(), "sample", "sample.pdf")
+        if sys.platform == "win32":
+            pdf_js_path = pdf_js_path.replace('\\', '/')
+            pdf_path = pdf_path.replace('\\', '/')
         self.load(QUrl.fromUserInput('%s?file=%s' % (pdf_js_path, pdf_path)))
 
-    # def change(self,pdf_js_path,pdf_path):
-    #     self.load(QUrl.fromUserInput('%s?file=%s' % (pdf_js_path, pdf_path)))
+    def change(self, pdf_js_path, pdf_path):
+        self.load(QUrl.fromUserInput('%s?file=%s' % (pdf_js_path, pdf_path)))
+
+    def dragEnterEvent(self, e):
+        e.accept()
+
+    def dropEvent(self, e):
+        self.change(e.mimeData().text())
 
 class MainWindow(QtWidgets.QMainWindow):
     def __init__(self):

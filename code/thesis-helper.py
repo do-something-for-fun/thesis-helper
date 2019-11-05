@@ -19,11 +19,8 @@ class PDFView(QWebEngineView):
     def __init__(self):
         super(PDFView, self).__init__()
         pdf_js_path = "file:///" + os.path.join(os.getcwd(), "code", "web", "viewer.html")
-        print(os.getcwd())
-        print(pdf_js_path)
         pdf_path = ""
         pdf_path = "file:///" + os.path.join(os.getcwd(), "sample","sample.pdf")
-        print(pdf_path)
         pdf_js_path = pdf_js_path.replace('\\', '/')
         pdf_path = pdf_path.replace('\\', '/')
         self.load(QUrl.fromUserInput('%s?file=%s' % (pdf_js_path, pdf_path)))
@@ -57,14 +54,14 @@ class MainWindow(QtWidgets.QMainWindow):
         self.translate_res.clear()
         self.translate_res.setText(cur_text)
 
-    def closeEvent(self,event):
-        sys.exit(app.exec_())
+    def closeEvent(self, event):
+        con.closed.emit()  # 发出信号让子线程停止运行
 
 if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
     mainWindow = MainWindow()
     mainWindow.show()
-    con.clip_changed.connect(mainWindow.update)
     watch_clip_thread = WatchClip()
     watch_clip_thread.start()
+    con.clip_changed.connect(mainWindow.update)
     sys.exit(app.exec_())

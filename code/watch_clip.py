@@ -12,10 +12,9 @@ class WatchClip(threading.Thread):
 
     def run(self):
         con.closed.connect(self.expired)
-        self.expired
         recent_text = pyperclip.paste()
         cur_text = ""
-        while True and not slef.expire:
+        while True and not self.expire:
             cur_text = pyperclip.paste()
             if cur_text == recent_text:
                 time.sleep(0.1)

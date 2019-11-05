@@ -35,9 +35,8 @@
 git clone git@github.com:muhualing/thesis-helper.git
 cd thesis-helper
 pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
-cd code
 chmod a+x thesis-helper.py
-./thesis-helper.py
+./thesis-helper.py # or python thesis-helper.py
 ```
 
 以后每次运行只需要双击`thesis-helper.py`即可。

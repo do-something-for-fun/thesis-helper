@@ -11,24 +11,26 @@ class WatchClip(threading.Thread):
         self.name = ""
         self.expire = False
         self.filter = TextFilter()
+        self.text = ''
 
     def run(self):
-        con.closed.connect(self.expired)
-        recent_text = pyperclip.paste()
-        cur_text = ""
+        recent_text = self.text
         while True and not self.expire:
-            cur_text = pyperclip.paste()
+            cur_text = self.text
             if cur_text == recent_text:
                 time.sleep(0.1)
             else:
                 recent_text = cur_text
                 self.update(cur_text)
 
+    def setTranslateText(self, inputText):
+        self.text = inputText
+
     def update(self, cur_text):
         # con.clip_changed.emit(get_translation(cur_text))
-        con.clip_changed.emit("正在翻译...")
-        cur_text = self.filter.removeDashLine(cur_text)
-        con.clip_changed.emit(get_translation_by_google(cur_text))
+        # con.clip_changed.emit("正在翻译...")
+        # cur_text = self.filter.removeDashLine(cur_text)
+        con.translationChanged.emit(get_translation_by_google(cur_text))
 
     def expired(self):
         self.expire = True

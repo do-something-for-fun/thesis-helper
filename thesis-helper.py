@@ -24,8 +24,10 @@ class PDFViewWrapperView(QWidget):
     def __init__(self):
         super(PDFViewWrapperView, self).__init__()
         self._glwidget = None
-
         self.wvTest = QWebEngineView(self)
+        hBoxLayout = QHBoxLayout()
+        hBoxLayout.addWidget(self.wvTest)
+        self.setLayout(hBoxLayout)
         # self.wvTest.__init__()
         self.wvTest.installEventFilter(self)
         self.pdf_js_path = "file:///" + os.path.join(os.getcwd(), "thesisUtils", "web", "viewer.html")
@@ -46,6 +48,17 @@ class PDFViewWrapperView(QWidget):
               source is self._glwidget):
             con.pdfViewMouseRelease.emit()
         return super().eventFilter(source, event)
+
+    def drapEnterEvent(self,e):
+        e.accept()
+
+    def dropEvent(self,e):
+        self.changePDF(e.mimeData().text())
+
+    def changePDF(self,pdf_path):
+        self.pdf_path = pdf_path
+        self.wvTest.load(QUrl.fromUserInput('%s?file=%s' % (self.pdf_js_path, self.pdf_path)))
+
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -76,7 +89,7 @@ class MainWindow(QMainWindow):
 
         self.pdfWrapper = PDFViewWrapperView()
         hBoxLayout = QHBoxLayout()
-        hBoxLayout.addWidget(self.pdfWrapper.wvTest)
+        hBoxLayout.addWidget(self.pdfWrapper)
         hBoxLayout.addWidget(gbox)
         hBoxLayout.setStretch(0, 9)
         hBoxLayout.setStretch(1, 3)

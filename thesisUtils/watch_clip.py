@@ -1,7 +1,7 @@
 import threading
 import time
-from code.controller import con
-from code.translate import get_translation_by_google
+from thesisUtils.controller import con
+from thesisUtils.translate import get_translation_by_google
 
 class WatchClip(threading.Thread):
     def __init__(self):

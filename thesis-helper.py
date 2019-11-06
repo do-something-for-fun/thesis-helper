@@ -11,10 +11,10 @@ from PyQt5.QtCore import QUrl,pyqtSignal,QEvent
 from PyQt5.QtGui import QColor
 from PyQt5.QtWidgets import (QWidget,
     QHBoxLayout, QVBoxLayout, QMainWindow, QTextEdit, QGroupBox,QApplication, QLabel, QTextBrowser)
-from code import watch_clip, text_filter
-from code.controller import con
-from code.watch_clip import WatchClip
-from code.text_filter import TextFilter
+
+from thesisUtils.controller import con
+from thesisUtils.watch_clip import WatchClip
+from thesisUtils.text_filter import TextFilter
 
 
 MAX_CHARACTERS = 5000
@@ -28,7 +28,7 @@ class PDFViewWrapperView(QWidget):
         self.wvTest = QWebEngineView(self)
         # self.wvTest.__init__()
         self.wvTest.installEventFilter(self)
-        self.pdf_js_path = "file:///" + os.path.join(os.getcwd(), "code", "web", "viewer.html")
+        self.pdf_js_path = "file:///" + os.path.join(os.getcwd(), "thesisUtils", "web", "viewer.html")
 
         self.pdf_path = "file:///" + os.path.join(os.getcwd(), "sample", "sample_2.pdf")
         if sys.platform == "win32":

@@ -11,10 +11,11 @@ from PyQt5.QtCore import QUrl,pyqtSignal,QEvent
 from PyQt5.QtGui import QColor
 from PyQt5.QtWidgets import (QWidget,
     QHBoxLayout, QVBoxLayout, QMainWindow, QTextEdit, QGroupBox,QApplication, QLabel, QTextBrowser)
-sys.path.insert(1, os.path.join(os.getcwd(), "code"))
-from controller import con
-from watch_clip import WatchClip
-from text_filter import TextFilter
+from code import watch_clip, text_filter
+from code.controller import con
+from code.watch_clip import WatchClip
+from code.text_filter import TextFilter
+
 
 MAX_CHARACTERS = 5000
 class PDFViewWrapperView(QWidget):

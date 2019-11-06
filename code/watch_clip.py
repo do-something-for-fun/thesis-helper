@@ -24,6 +24,7 @@ class WatchClip(threading.Thread):
 
     def update(self, cur_text):
         # con.clip_changed.emit(get_translation(cur_text))
+        con.clip_changed.emit("正在翻译...")
         con.clip_changed.emit(get_translation_by_google(cur_text))
 
     def expired(self):

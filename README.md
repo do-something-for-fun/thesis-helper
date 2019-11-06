@@ -53,10 +53,13 @@ chmod a+x thesis-helper.py
 6. 选中要翻译的文本，右键复制，然后侧边栏就有中文翻译结果了
 
 ### 致谢
-感谢杨帅昊(QSCTech-Sange)、Wye(Lucas-Wye)、dendenxu、qiqiph、Jarvisssametake对`thesis-helper`做出的贡献(提交过 Issue 或者 PR)。
+感谢杨帅昊(QSCTech-Sange)、Jarvisss、Wye(Lucas-Wye)、dendenxu、qiqiph和ametake对`thesis-helper`做出的贡献(提交过 Issue 或者 PR)。
 
 <a href="https://github.com/QSCTech-Sange">
     <img src="https://avatars1.githubusercontent.com/u/33112139?s=460&amp;v=4" width="50px">
+</a> 
+<a href="https://github.com/Jarvisss">
+    <img src="https://avatars2.githubusercontent.com/u/16323003?s=400&v=4" width="50px">
 </a> 
 <a href="https://github.com/Lucas-Wye">
     <img src="https://avatars0.githubusercontent.com/u/30680577?s=400&v=4" width="50px">
@@ -66,9 +69,6 @@ chmod a+x thesis-helper.py
 </a> 
 <a href="https://github.com/qiqiph">
     <img src="https://avatars1.githubusercontent.com/u/37620794?s=400&v=4" width="50px">
-</a> 
-<a href="https://github.com/Jarvisss">
-    <img src="https://avatars2.githubusercontent.com/u/16323003?s=400&v=4" width="50px">
 </a> 
 <a href="https://github.com/ametake">
     <img src="https://avatars2.githubusercontent.com/u/22291194?s=400&v=4" width="50px">

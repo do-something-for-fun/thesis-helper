@@ -23,7 +23,7 @@ class PDFView(QWebEngineView):
         self.pdf_js_path = "file:///" + os.path.join(os.getcwd(), "code", "web", "viewer.html")
         pdf_path = "file:///" + os.path.join(os.getcwd(), "sample", "sample.pdf")
         if sys.platform == "win32":
-            pdf_js_path = pdf_js_path.replace('\\', '/')
+            self.pdf_js_path = self.pdf_js_path.replace('\\', '/')
             pdf_path = pdf_path.replace('\\', '/')
         self.load(QUrl.fromUserInput('%s?file=%s' % (self.pdf_js_path, pdf_path)))
 

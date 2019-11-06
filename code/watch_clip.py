@@ -2,7 +2,7 @@ import threading
 import pyperclip
 import time
 from controller import con
-from translate import get_translation
+from translate import get_translation, get_translation_by_google
 
 class WatchClip(threading.Thread):
     def __init__(self):
@@ -23,7 +23,8 @@ class WatchClip(threading.Thread):
                 self.update(cur_text)
 
     def update(self, cur_text):
-        con.clip_changed.emit(get_translation(cur_text))
+        # con.clip_changed.emit(get_translation(cur_text))
+        con.clip_changed.emit(get_translation_by_google(cur_text))
 
     def expired(self):
         self.expire = True

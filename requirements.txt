@@ -1,4 +1,3 @@
-pyperclip
 pyqt5
 requests
 pyqtWebEngine

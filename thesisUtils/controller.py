@@ -3,4 +3,5 @@ class Controller(QObject):
     translationChanged = pyqtSignal(str)
     closed = pyqtSignal()
     pdfViewMouseRelease = pyqtSignal()
+
 con = Controller()

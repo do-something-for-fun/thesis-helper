@@ -1,4 +1,4 @@
-import os, requests, uuid, json
+import requests, uuid
 from googletrans import Translator
 from googletrans import urls, utils
 from googletrans.compat import PY3
@@ -25,17 +25,6 @@ class MyTranslator(Translator):
         return data
 
 def get_translation_by_google(text_input):
-    # # 去除pdf格式所造成的换行问题
-    # text_input = text_input.split("\n")
-    # text = ""
-    # new_begin = True
-    # length = len(text_input[0]) - 10
-    # for line in text_input:
-    #     last_line = len(line) < length
-    #     text += ((not new_begin) * " " + line.rstrip("-") + "\n" * last_line)
-    #     new_begin = last_line or line[-1] == "-"
-    # text_input = text
-
     translator = MyTranslator(service_urls=["translate.google.cn"])
     translate_res = translator.translate(text_input, dest='zh-cn')
     return translate_res.text
@@ -43,17 +32,6 @@ def get_translation_by_google(text_input):
 def get_translation(text_input, language_output="zh-Hans"):
     if not text_input:
         return ""
-    
-    # # 去除pdf格式所造成的换行问题
-    # text_input = text_input.split("\n")
-    # text = ""
-    # new_begin = True
-    # length = len(text_input[0]) - 10
-    # for line in text_input:
-    #     last_line = len(line) < length
-    #     text += ((not new_begin) * " " + line.rstrip("-") + "\n" * last_line)
-    #     new_begin = last_line or line[-1] == "-"
-    # text_input = text
 
     base_url = 'https://api.cognitive.microsofttranslator.com'
     path = '/translate?api-version=3.0'

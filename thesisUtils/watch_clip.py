@@ -1,16 +1,13 @@
 import threading
-import pyperclip
 import time
-from controller import con
-from translate import get_translation, get_translation_by_google
-from text_filter import TextFilter
+from thesisUtils.controller import con
+from thesisUtils.translate import get_translation_by_google
 
 class WatchClip(threading.Thread):
     def __init__(self):
         super(WatchClip, self).__init__()
         self.name = ""
         self.expire = False
-        self.filter = TextFilter()
         self.text = ''
 
     def run(self):
@@ -27,9 +24,6 @@ class WatchClip(threading.Thread):
         self.text = inputText
 
     def update(self, cur_text):
-        # con.clip_changed.emit(get_translation(cur_text))
-        # con.clip_changed.emit("正在翻译...")
-        # cur_text = self.filter.removeDashLine(cur_text)
         con.translationChanged.emit(get_translation_by_google(cur_text))
 
     def expired(self):

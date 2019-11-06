@@ -1,6 +1,13 @@
 import os, requests, uuid, json
+from googletrans import Translator
 
 subscription_key = '32f1cb9c935a4cd4b33825e2869bff0f'
+
+
+def get_translation_by_google(text_input):
+    translator = Translator(service_urls=["translate.google.cn"])
+    translate_res = translator.translate(text_input, dest='zh-cn')
+    return translate_res.text
 
 def get_translation(text_input, language_output="zh-Hans"):
     if not text_input:

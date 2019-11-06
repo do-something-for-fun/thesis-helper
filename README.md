@@ -18,7 +18,8 @@
 ### Windows
 
 1. 下载[压缩包](https://github.com/muhualing/thesis-helper/releases/download/v1.0/thesis-helper.zip)（不是直接在本页面下载，要点击蓝色的链接，链接到release界面下载）
-2. 解压缩 (此步骤务必保证解压后的文件夹在全英文路径下，中文路径会闪退)
+2. 解压缩
+ `!!!此步骤务必保证解压后的文件夹在全英文路径下，中文路径会闪退`
 3. 运行`thesis-helper.exe`
 4. 把`pdf`拖拽进来
 5. 选中要翻译的文本，右键复制，然后侧边栏就有中文翻译结果了

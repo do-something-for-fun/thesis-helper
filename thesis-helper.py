@@ -30,27 +30,45 @@ class WebView(QWebEngineView):
         self.changePDF(pdf_path)
         self.setAcceptDrops(True)
         self.installEventFilter(self)
+
     def dragEnterEvent(self,e):
-        print('drag')
+        """
+        Detect mouse drag something into the view
+
+        :param e: Mouse event
+        :return: None
+        """
+        # print('drag')
         e.accept()
 
     def dropEvent(self,e):
-        print('drop')
+        """
+        Detect mouse release event the view and state before release is dragging
+
+        :param e: Mouse event
+        :return: None
+        """
         self.changePDF(e.mimeData().text())
 
     def event(self, e):
-        if(e.type() == QEvent.ChildAdded and e.child().isWidgetType()):
+        """
+        Detect child add event, as QWebEngineView do not capture mouse event directly,
+        the child layer _glwidget is implicitly added to QWebEngineView and we track mouse event through the glwidget
+
+        :param e: QEvent
+        :return: super().event(e)
+        """
+        if e.type() == QEvent.ChildAdded and e.child().isWidgetType():
             # print('child add')
             self._glwidget = e.child()
             self._glwidget.installEventFilter(self)
-
-        if(e.type() == QEvent.ChildRemoved and e.child.isWidgetType()):
-            # print('child removed')
-            if(self._glwidget is not None):
-                self._glwidget.removeEventFilter(self)
-        if(e.type() == QEvent.Close):
-            # print('close webView')
-            self.removeEventFilter(self)
+        # if e.type() == QEvent.ChildRemoved and e.child.isWidgetType():
+        #     # print('child removed')
+        #     if self._glwidget is not None:
+        #         self._glwidget.removeEventFilter(self)
+        # if e.type() == QEvent.Close:
+        #     # print('close webView')
+        #     self.removeEventFilter(self)
         return super().event(e)
 
     def eventFilter(self, source, event):
@@ -59,9 +77,6 @@ class WebView(QWebEngineView):
         return super().eventFilter(source, event)
     def changePDF(self,pdf_path ):
         self.load(QUrl.fromUserInput('%s?file=%s' % (self.pdf_js_path, pdf_path)))
-
-    # def
-
 
 
 class MainWindow(QMainWindow):

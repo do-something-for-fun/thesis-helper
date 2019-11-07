@@ -29,34 +29,39 @@ class WebView(QWebEngineView):
             pdf_path = pdf_path.replace('\\', '/')
         self.changePDF(pdf_path)
         self.setAcceptDrops(True)
-
+        self.installEventFilter(self)
     def dragEnterEvent(self,e):
+        print('drag')
         e.accept()
 
     def dropEvent(self,e):
+        print('drop')
         self.changePDF(e.mimeData().text())
 
-    def changePDF(self,pdf_path):
-        self.load(QUrl.fromUserInput('%s?file=%s' % (self.pdf_js_path, pdf_path)))
+    def event(self, e):
+        if(e.type() == QEvent.ChildAdded and e.child().isWidgetType()):
+            # print('child add')
+            self._glwidget = e.child()
+            self._glwidget.installEventFilter(self)
 
-class PDFViewWrapperView(QWidget):
-
-    def __init__(self):
-        super(PDFViewWrapperView, self).__init__()
-        self._glwidget = None
-        self.wvTest = WebView()
-        self.wvTest.installEventFilter(self)
+        if(e.type() == QEvent.ChildRemoved and e.child.isWidgetType()):
+            # print('child removed')
+            if(self._glwidget is not None):
+                self._glwidget.removeEventFilter(self)
+        if(e.type() == QEvent.Close):
+            # print('close webView')
+            self.removeEventFilter(self)
+        return super().event(e)
 
     def eventFilter(self, source, event):
-        if (event.type() == QEvent.ChildAdded and
-                source is self.wvTest and
-                event.child().isWidgetType()):
-            self._glwidget = event.child()
-            self._glwidget.installEventFilter(self)
-        elif (event.type() == QEvent.MouseButtonRelease and
-              source is self._glwidget):
+        if (event.type() == QEvent.MouseButtonRelease and source is self._glwidget):
             con.pdfViewMouseRelease.emit()
         return super().eventFilter(source, event)
+    def changePDF(self,pdf_path ):
+        self.load(QUrl.fromUserInput('%s?file=%s' % (self.pdf_js_path, pdf_path)))
+
+    # def
+
 
 
 class MainWindow(QMainWindow):
@@ -67,7 +72,7 @@ class MainWindow(QMainWindow):
 
         self.setWindowTitle("毕业论文小助手")
 
-        self.translate_ori = QTextBrowser()
+        self.translate_ori = QTextEdit()
         self.translate_ori.setTextBackgroundColor(QColor(127, 127, 127, 60))
         self.translate_ori.setStyleSheet("font: 12pt Roboto")
 
@@ -86,9 +91,9 @@ class MainWindow(QMainWindow):
         gbox.setStyleSheet("font: 12pt Roboto")
         gbox.setLayout(vbox)
 
-        self.pdfWrapper = PDFViewWrapperView()
+        self.pdfWrapper = WebView()
         hBoxLayout = QHBoxLayout()
-        hBoxLayout.addWidget(self.pdfWrapper.wvTest)
+        hBoxLayout.addWidget(self.pdfWrapper)
         hBoxLayout.addWidget(gbox)
         hBoxLayout.setStretch(0, 9)
         hBoxLayout.setStretch(1, 3)
@@ -104,10 +109,10 @@ class MainWindow(QMainWindow):
         self.translate_res.setText(cur_text)
 
     def updateByMouseRelease(self):
-        print('no seletion to translate')
-        if self.pdfWrapper.wvTest.hasSelection():
+        # print('no seletion to translate')
+        if self.pdfWrapper.hasSelection():
 
-            to_translate_text = self.pdfWrapper.wvTest.selectedText()
+            to_translate_text = self.pdfWrapper.selectedText()
             if len(to_translate_text) > MAX_CHARACTERS:
                 hint_str = '请选择少于%d个英文字符' % MAX_CHARACTERS
                 # print(hint_str)
@@ -121,11 +126,15 @@ class MainWindow(QMainWindow):
                 else:
                     hint_str = '正在翻译...'
                     filtered = self.filter.removeDashLine(to_translate_text)
-                    print(filtered)
+                    # print(filtered)
                     self.recent_text = to_translate_text
                     self.translate_ori.setText(filtered)
                     self.translate_res.setText(hint_str)
-                    self.thread_my.setTranslateText(filtered)
+                    # self.thread_my.setTranslateText(filtered)
+
+    def updateByTextEdit(self):
+        # print('TextEdited')
+        self.thread_my.setTranslateText(self.translate_ori.toPlainText())
 
     def closeEvent(self, event):
         self.thread_my.expired()
@@ -137,4 +146,6 @@ if __name__ == '__main__':
     mainWindow.show()
     con.translationChanged.connect(mainWindow.updateTranslation)
     con.pdfViewMouseRelease.connect(mainWindow.updateByMouseRelease)
+    mainWindow.translate_ori.textChanged.connect(mainWindow.updateByTextEdit)
     sys.exit(app.exec_())
+    

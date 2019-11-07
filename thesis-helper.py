@@ -10,7 +10,7 @@ from PyQt5.QtWebEngineWidgets import QWebEngineView
 from PyQt5.QtCore import QUrl,pyqtSignal,QEvent
 from PyQt5.QtGui import QColor
 from PyQt5.QtWidgets import (QWidget,
-    QHBoxLayout, QVBoxLayout, QMainWindow, QTextEdit, QGroupBox,QApplication, QLabel, QTextBrowser)
+     QHBoxLayout, QVBoxLayout, QMainWindow, QTextEdit, QGroupBox,QApplication, QLabel, QTextBrowser)
 
 from thesisUtils.controller import con
 from thesisUtils.watch_clip import WatchClip
@@ -18,6 +18,7 @@ from thesisUtils.text_filter import TextFilter
 
 #
 MAX_CHARACTERS = 5000
+
 
 class WebView(QWebEngineView):
     def __init__(self):
@@ -30,6 +31,7 @@ class WebView(QWebEngineView):
         self.changePDF(pdf_path)
         self.setAcceptDrops(True)
         self.installEventFilter(self)
+
     def dragEnterEvent(self,e):
         print('drag')
         e.accept()
@@ -39,29 +41,27 @@ class WebView(QWebEngineView):
         self.changePDF(e.mimeData().text())
 
     def event(self, e):
-        if(e.type() == QEvent.ChildAdded and e.child().isWidgetType()):
+        if e.type() == QEvent.ChildAdded and e.child().isWidgetType():
             print('child add')
             self._glwidget = e.child()
             self._glwidget.installEventFilter(self)
 
-        if(e.type() == QEvent.ChildRemoved and e.child.isWidgetType()):
+        if e.type() == QEvent.ChildRemoved and e.child.isWidgetType():
             print('child removed')
-            if(self._glwidget is not None):
+            if self._glwidget is not None:
                 self._glwidget.removeEventFilter(self)
-        if(e.type() == QEvent.Close):
+        if e.type() == QEvent.Close:
             print('close webView')
             self.removeEventFilter(self)
         return super().event(e)
 
     def eventFilter(self, source, event):
-        if (event.type() == QEvent.MouseButtonRelease and source is self._glwidget):
+        if event.type() == QEvent.MouseButtonRelease and source is self._glwidget:
             con.pdfViewMouseRelease.emit()
         return super().eventFilter(source, event)
-    def changePDF(self,pdf_path ):
+
+    def changePDF(self, pdf_path):
         self.load(QUrl.fromUserInput('%s?file=%s' % (self.pdf_js_path, pdf_path)))
-
-    # def
-
 
 
 class MainWindow(QMainWindow):

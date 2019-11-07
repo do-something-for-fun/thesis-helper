@@ -187,9 +187,11 @@ function getViewerConfiguration() {
       toggleButton: document.getElementById('sidebarToggle'),
       thumbnailButton: document.getElementById('viewThumbnail'),
       outlineButton: document.getElementById('viewOutline'),
+      historyButton: document.getElementById('viewHistory'),
       attachmentsButton: document.getElementById('viewAttachments'),
       thumbnailView: document.getElementById('thumbnailView'),
       outlineView: document.getElementById('outlineView'),
+      historyView: document.getElementById('historyView'),
       attachmentsView: document.getElementById('attachmentsView')
     },
     sidebarResizer: {
@@ -311,6 +313,8 @@ var _pdf_link_service = __webpack_require__(21);
 
 var _pdf_outline_viewer = __webpack_require__(22);
 
+var _pdf_history_viewer = __webpack_require__(26);
+
 var _pdf_presentation_mode = __webpack_require__(23);
 
 var _pdf_sidebar_resizer = __webpack_require__(24);
@@ -390,6 +394,7 @@ var PDFViewerApplication = {
   pdfSidebar: null,
   pdfSidebarResizer: null,
   pdfOutlineViewer: null,
+  pdfHistoryViewer: null,
   pdfAttachmentViewer: null,
   pdfCursorTools: null,
   store: null,
@@ -929,6 +934,7 @@ var PDFViewerApplication = {
               this.contentDispositionFilename = null;
               this.pdfSidebar.reset();
               this.pdfOutlineViewer.reset();
+              this.pdfHistoryViewer.reset();
               this.pdfAttachmentViewer.reset();
               this.findBar.reset();
               this.toolbar.reset();
@@ -1957,6 +1963,10 @@ function webViewerPageMode(evt) {
       view = _pdf_sidebar.SidebarView.OUTLINE;
       break;
 
+    case 'history':
+      view = _pdf_sidebar.SidebarView.HISTORY;
+      break;
+
     case 'attachments':
       view = _pdf_sidebar.SidebarView.ATTACHMENTS;
       break;
@@ -2673,6 +2683,9 @@ function apiPageModeToSidebarView(mode) {
 
     case 'UseOutlines':
       return _pdf_sidebar.SidebarView.OUTLINE;
+
+    case 'UseHistories':
+      return _pdf_sidebar.SidebarView.HISTORY;
 
     case 'UseAttachments':
       return _pdf_sidebar.SidebarView.ATTACHMENTS;
@@ -5008,7 +5021,8 @@ var SidebarView = {
   THUMBS: 1,
   OUTLINE: 2,
   ATTACHMENTS: 3,
-  LAYERS: 4
+  LAYERS: 4,
+  HISTORY: 5
 };
 exports.SidebarView = SidebarView;
 
@@ -5038,9 +5052,11 @@ function () {
     this.toggleButton = elements.toggleButton;
     this.thumbnailButton = elements.thumbnailButton;
     this.outlineButton = elements.outlineButton;
+    this.historyButton = elements.historyButton;
     this.attachmentsButton = elements.attachmentsButton;
     this.thumbnailView = elements.thumbnailView;
     this.outlineView = elements.outlineView;
+    this.historyView = elements.historyView;
     this.attachmentsView = elements.attachmentsView;
     this.eventBus = eventBus;
     this.l10n = l10n;
@@ -5058,6 +5074,7 @@ function () {
 
       this.switchView(SidebarView.THUMBS);
       this.outlineButton.disabled = false;
+      this.historyButton.disabled = false;
       this.attachmentsButton.disabled = false;
     }
   }, {
@@ -5118,6 +5135,14 @@ function () {
 
           break;
 
+        case SidebarView.HISTORY:
+          if (this.historyButton.disabled) {
+            return false;
+          }
+
+          break;
+
+
         case SidebarView.ATTACHMENTS:
           if (this.attachmentsButton.disabled) {
             return false;
@@ -5133,9 +5158,11 @@ function () {
       this.active = view;
       this.thumbnailButton.classList.toggle('toggled', view === SidebarView.THUMBS);
       this.outlineButton.classList.toggle('toggled', view === SidebarView.OUTLINE);
+      this.historyButton.classList.toggle('toggled', view === SidebarView.HISTORY);
       this.attachmentsButton.classList.toggle('toggled', view === SidebarView.ATTACHMENTS);
       this.thumbnailView.classList.toggle('hidden', view !== SidebarView.THUMBS);
       this.outlineView.classList.toggle('hidden', view !== SidebarView.OUTLINE);
+      this.historyView.classList.toggle('hidden', view !== SidebarView.HISTORY);
       this.attachmentsView.classList.toggle('hidden', view !== SidebarView.ATTACHMENTS);
 
       if (forceOpen && !this.isOpen) {
@@ -5248,7 +5275,7 @@ function () {
         return;
       }
 
-      this.l10n.get('toggle_sidebar_notification.title', null, 'Toggle Sidebar (document contains outline/attachments)').then(function (msg) {
+      this.l10n.get('toggle_sidebar_notification.title', null, 'Toggle Sidebar (document contains outline/attachments/history)').then(function (msg) {
         _this.toggleButton.title = msg;
       });
 
@@ -5261,6 +5288,10 @@ function () {
       switch (view) {
         case SidebarView.OUTLINE:
           this.outlineButton.classList.add(UI_NOTIFICATION_CLASS);
+          break;
+
+        case SidebarView.HISTORY:
+          this.historyButton.classList.add(UI_NOTIFICATION_CLASS);
           break;
 
         case SidebarView.ATTACHMENTS:
@@ -5281,6 +5312,11 @@ function () {
         switch (view) {
           case SidebarView.OUTLINE:
             _this2.outlineButton.classList.remove(UI_NOTIFICATION_CLASS);
+
+            break;
+
+          case SidebarView.HISTORY:
+            _this2.historyButton.classList.remove(UI_NOTIFICATION_CLASS);
 
             break;
 
@@ -5326,6 +5362,9 @@ function () {
       this.outlineButton.addEventListener('click', function () {
         _this3.switchView(SidebarView.OUTLINE);
       });
+      this.historyButton.addEventListener('click', function () {
+        _this3.switchView(SidebarView.HISTORY);
+      });
       this.outlineButton.addEventListener('dblclick', function () {
         _this3.eventBus.dispatch('toggleoutlinetree', {
           source: _this3
@@ -5341,6 +5380,16 @@ function () {
         if (outlineCount) {
           _this3._showUINotification(SidebarView.OUTLINE);
         } else if (_this3.active === SidebarView.OUTLINE) {
+          _this3.switchView(SidebarView.THUMBS);
+        }
+      });
+      this.eventBus.on('historyloaded', function (evt) {
+        var historyCount = evt.historyCount;
+        _this3.historyButton.disabled = !historyCount;
+
+        if (historyCount) {
+          _this3._showUINotification(SidebarView.HISTORY);
+        } else if (_this3.active === SidebarView.HISTORY) {
           _this3.switchView(SidebarView.THUMBS);
         }
       });
@@ -5385,6 +5434,11 @@ function () {
     key: "isOutlineViewVisible",
     get: function get() {
       return this.isOpen && this.active === SidebarView.OUTLINE;
+    }
+  }, {
+    key: "isHistoryViewVisible",
+    get: function get() {
+      return this.isOpen && this.active === SidebarView.HISTORY;
     }
   }, {
     key: "isAttachmentsViewVisible",
@@ -8583,6 +8637,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.PDFOutlineViewer = void 0;
+exports.PDFHistoryViewer = void 0;
 
 var _pdfjsLib = __webpack_require__(7);
 

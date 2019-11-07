@@ -1403,6 +1403,10 @@ html[dir="rtl"] #viewOutline.toolbarButton::before {
   content: url(images/toolbarButton-viewOutline-rtl.png);
 }
 
+#viewHistory.toolbarButton::before {
+  content: url(images/treeitem-expanded.png);
+}
+
 #viewAttachments.toolbarButton::before {
   content: url(images/toolbarButton-viewAttachments.png);
 }
@@ -1713,6 +1717,9 @@ a:focus > .thumbnail > .thumbnailSelectionRing,
 }
 
 #outlineView {
+  padding: 4px 4px 0;
+}
+#historyView {
   padding: 4px 4px 0;
 }
 #attachmentsView {

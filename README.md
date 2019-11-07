@@ -7,6 +7,9 @@
 
 ![效果图](guide.gif)
 
+## 微信群
+![二维码](user_wx_group.jpg)
+
 ## 技术栈
 
 + `PyQt5` 用于GUI的实现

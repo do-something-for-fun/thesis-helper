@@ -11,18 +11,18 @@
 
 + `PyQt5` 用于GUI的实现
 + `pdfjs` 用于解析PDF
-+ `微软翻译` 用于翻译
++ `最新版谷歌翻译` 用于翻译
 
 ## 使用方法
 
 ### Windows
 
-1. 下载[压缩包](https://github.com/do-something-for-fun/thesis-helper/releases/download/v2.0/thesis-helper-windows.zip)（不是直接在本页面下载，要点击蓝色的链接，链接到release界面下载）,[快速下载](https://pan.zju.edu.cn/share/0b37c871d88ac3bd6841c26153)
+1. [稳定下载地址](https://github.com/do-something-for-fun/thesis-helper/releases/download/v2.0/thesis-helper-windows.zip)、[极速下载地址](https://pan.zju.edu.cn/share/0b37c871d88ac3bd6841c26153)
 2. 解压缩
  `!!!此步骤务必保证解压后的文件夹在全英文路径下，中文路径会闪退`
 3. 运行`thesis-helper.exe`
 4. 把`pdf`拖拽进来
-5. 选中要翻译的文本，右键复制，然后侧边栏就有中文翻译结果了
+5. 选中要翻译的文本，然后侧边栏就有中文翻译结果了
 
 ### Linux & Mac OS
 

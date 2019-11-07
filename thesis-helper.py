@@ -72,7 +72,7 @@ class MainWindow(QMainWindow):
 
         self.setWindowTitle("毕业论文小助手")
 
-        self.translate_ori = QTextBrowser()
+        self.translate_ori = QTextEdit()
         self.translate_ori.setTextBackgroundColor(QColor(127, 127, 127, 60))
         self.translate_ori.setStyleSheet("font: 12pt Roboto")
 
@@ -132,6 +132,10 @@ class MainWindow(QMainWindow):
                     self.translate_res.setText(hint_str)
                     self.thread_my.setTranslateText(filtered)
 
+    def updateByTextEdit(self):
+        print('TextEdited')
+        self.thread_my.setTranslateText(self.translate_ori.toPlainText())
+
     def closeEvent(self, event):
         self.thread_my.expired()
 
@@ -142,4 +146,5 @@ if __name__ == '__main__':
     mainWindow.show()
     con.translationChanged.connect(mainWindow.updateTranslation)
     con.pdfViewMouseRelease.connect(mainWindow.updateByMouseRelease)
+    mainWindow.translate_ori.textChanged.connect(mainWindow.updateByTextEdit)
     sys.exit(app.exec_())

@@ -17,7 +17,7 @@
 
 ### Windows
 
-1. 下载[压缩包](https://github.com/muhualing/thesis-helper/releases/download/v1.0/thesis-helper.zip)（不是直接在本页面下载，要点击蓝色的链接，链接到release界面下载）
+1. 下载[压缩包](https://github.com/do-something-for-fun/thesis-helper/releases/download/v2.0/thesis-helper-windows.zip)（不是直接在本页面下载，要点击蓝色的链接，链接到release界面下载）,[快速下载](https://pan.zju.edu.cn/share/0b37c871d88ac3bd6841c26153)
 2. 解压缩
  `!!!此步骤务必保证解压后的文件夹在全英文路径下，中文路径会闪退`
 3. 运行`thesis-helper.exe`

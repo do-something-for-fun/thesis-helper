@@ -40,16 +40,16 @@ class WebView(QWebEngineView):
 
     def event(self, e):
         if(e.type() == QEvent.ChildAdded and e.child().isWidgetType()):
-            print('child add')
+            # print('child add')
             self._glwidget = e.child()
             self._glwidget.installEventFilter(self)
 
         if(e.type() == QEvent.ChildRemoved and e.child.isWidgetType()):
-            print('child removed')
+            # print('child removed')
             if(self._glwidget is not None):
                 self._glwidget.removeEventFilter(self)
         if(e.type() == QEvent.Close):
-            print('close webView')
+            # print('close webView')
             self.removeEventFilter(self)
         return super().event(e)
 
@@ -109,7 +109,7 @@ class MainWindow(QMainWindow):
         self.translate_res.setText(cur_text)
 
     def updateByMouseRelease(self):
-        print('no seletion to translate')
+        # print('no seletion to translate')
         if self.pdfWrapper.hasSelection():
 
             to_translate_text = self.pdfWrapper.selectedText()
@@ -126,14 +126,14 @@ class MainWindow(QMainWindow):
                 else:
                     hint_str = '正在翻译...'
                     filtered = self.filter.removeDashLine(to_translate_text)
-                    print(filtered)
+                    # print(filtered)
                     self.recent_text = to_translate_text
                     self.translate_ori.setText(filtered)
                     self.translate_res.setText(hint_str)
-                    self.thread_my.setTranslateText(filtered)
+                    # self.thread_my.setTranslateText(filtered)
 
     def updateByTextEdit(self):
-        print('TextEdited')
+        # print('TextEdited')
         self.thread_my.setTranslateText(self.translate_ori.toPlainText())
 
     def closeEvent(self, event):
@@ -148,3 +148,4 @@ if __name__ == '__main__':
     con.pdfViewMouseRelease.connect(mainWindow.updateByMouseRelease)
     mainWindow.translate_ori.textChanged.connect(mainWindow.updateByTextEdit)
     sys.exit(app.exec_())
+    

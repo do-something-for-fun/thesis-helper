@@ -16,7 +16,7 @@ from thesisUtils.controller import con
 from thesisUtils.watch_clip import WatchClip
 from thesisUtils.text_filter import TextFilter
 
-
+#
 MAX_CHARACTERS = 5000
 
 class WebView(QWebEngineView):

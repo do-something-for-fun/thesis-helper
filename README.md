@@ -17,46 +17,71 @@
 
 ### Windows
 
-1. [稳定下载地址](https://github.com/do-something-for-fun/thesis-helper/releases/download/v2.0/thesis-helper-windows.zip)、[极速下载地址](https://pan.zju.edu.cn/share/0b37c871d88ac3bd6841c26153)
+1. [稳定下载地址，下载相应版本](https://github.com/do-something-for-fun/thesis-helper/releases/)、[极速下载地址](https://pan.zju.edu.cn/share/0b37c871d88ac3bd6841c26153)
 2. 解压缩
  `!!!此步骤务必保证解压后的文件夹在全英文路径下，中文路径会闪退`
 3. 运行`thesis-helper.exe`
 4. 把`pdf`拖拽进来
 5. 选中要翻译的文本，然后侧边栏就有中文翻译结果了
 
-### Linux & Mac OS
+### Mac OS X
 
-至少需要有Python环境，然后安装依赖
+仍在构建中～敬请期待～
+
+或者参考源码构建。
+
+### Linux
+
+1. [稳定下载地址，下载相应版本](https://github.com/do-something-for-fun/thesis-helper/releases/)
+
+2. 进入刚刚下载的文件所在的目录，打开一个shell并输入
+
 ```shell
-pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
+tar -xf thesis-helper-linux-v2.0.tar.xz
+cd thesis-helper
+./thesis-helper
 ```
+
+### 源码构建
+
+由于本项目还在快速增长期，从源码里直接构建，可以享用到最新的功能。需要拥有Python环境。
+
+#### 无Git环境
+
+1. 下载[压缩包](https://github.com/do-something-for-fun/thesis-helper/archive/master.zip)
+
+2. 解压缩
+
+3. 进入解压缩的目录并在这个目录下打开一个控制台
+
+4. 控制台里执行
+
+   ```
+   pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
+   python thesis-helper.py
+   ```
+
+5. 把`pdf`拖拽进来
+
+6. 选中要翻译的文本，然后侧边栏就有中文翻译结果了
 
 #### 有Git环境
 
-命令行输入如下指令即可。
+1. 命令行输入如下指令即可。
 
 ```shell
 git clone git@github.com:muhualing/thesis-helper.git
 cd thesis-helper
-
-chmod a+x thesis-helper.py
-./thesis-helper.py # or python thesis-helper.py
+pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
+python thesis-helper
 ```
 
-以后每次运行只需要双击`thesis-helper.py`即可。
+2. 把`pdf`拖拽进来
 
-你也可以给它创建快捷方式到任何你喜欢的地方。
+3. 选中要翻译的文本，然后侧边栏就有中文翻译结果了
 
-#### 无Git环境
+#　致谢
 
-1. 下载[压缩包](https://github.com/QSCTech-Sange/thesis-helper/archive/master.zip)
-2. 解压缩
-3. 进入解压缩的目录并在这个目录下打开一个控制台
-4. 控制台里执行`python thesis-helper.py`
-5. 把`pdf`拖拽进来
-6. 选中要翻译的文本，右键复制，然后侧边栏就有中文翻译结果了
-
-### 致谢
 感谢杨帅昊(QSCTech-Sange)、Jarvisss、Wye(Lucas-Wye)、dendenxu、qiqiph和ametake对`thesis-helper`做出的贡献(提交过 Issue 或者 PR)。
 
 <a href="https://github.com/QSCTech-Sange">
@@ -77,3 +102,4 @@ chmod a+x thesis-helper.py
 <a href="https://github.com/ametake">
     <img src="https://avatars2.githubusercontent.com/u/22291194?s=400&v=4" width="50px">
 </a> 
+

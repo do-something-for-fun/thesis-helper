@@ -26,7 +26,7 @@ class WebView(QWebEngineView):
         pdf_path = "file:///" + os.path.join(os.getcwd(), "sample", "sample_2.pdf")        
         if sys.platform == "win32":
             self.pdf_js_path = self.pdf_js_path.replace('\\', '/')
-            self.pdf_path = self.pdf_path.replace('\\', '/')
+            pdf_path = pdf_path.replace('\\', '/')
         self.changePDF(pdf_path)
         self.setAcceptDrops(True)
 

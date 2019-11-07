@@ -18,25 +18,34 @@ from thesisUtils.text_filter import TextFilter
 
 
 MAX_CHARACTERS = 5000
-class PDFViewWrapperView(QWidget):
 
+class WebView(QWebEngineView):
+    def __init__(self):
+        super(WebView, self).__init__()
+        self.pdf_js_path = "file:///" + os.path.join(os.getcwd(), "thesisUtils", "web", "viewer.html")
+        pdf_path = "file:///" + os.path.join(os.getcwd(), "sample", "sample_2.pdf")        
+        if sys.platform == "win32":
+            self.pdf_js_path = self.pdf_js_path.replace('\\', '/')
+            self.pdf_path = self.pdf_path.replace('\\', '/')
+        self.changePDF(pdf_path)
+        self.setAcceptDrops(True)
+
+    def dragEnterEvent(self,e):
+        e.accept()
+
+    def dropEvent(self,e):
+        self.changePDF(e.mimeData().text())
+
+    def changePDF(self,pdf_path):
+        self.load(QUrl.fromUserInput('%s?file=%s' % (self.pdf_js_path, pdf_path)))
+
+class PDFViewWrapperView(QWidget):
 
     def __init__(self):
         super(PDFViewWrapperView, self).__init__()
         self._glwidget = None
-        self.wvTest = QWebEngineView(self)
-        hBoxLayout = QHBoxLayout()
-        hBoxLayout.addWidget(self.wvTest)
-        self.setLayout(hBoxLayout)
-        # self.wvTest.__init__()
+        self.wvTest = WebView()
         self.wvTest.installEventFilter(self)
-        self.pdf_js_path = "file:///" + os.path.join(os.getcwd(), "thesisUtils", "web", "viewer.html")
-
-        self.pdf_path = "file:///" + os.path.join(os.getcwd(), "sample", "sample_2.pdf")
-        if sys.platform == "win32":
-            self.pdf_js_path = self.pdf_js_path.replace('\\', '/')
-            self.pdf_path = self.pdf_path.replace('\\', '/')
-        self.wvTest.load(QUrl.fromUserInput('%s?file=%s' % (self.pdf_js_path, self.pdf_path)))
 
     def eventFilter(self, source, event):
         if (event.type() == QEvent.ChildAdded and
@@ -48,16 +57,6 @@ class PDFViewWrapperView(QWidget):
               source is self._glwidget):
             con.pdfViewMouseRelease.emit()
         return super().eventFilter(source, event)
-
-    def drapEnterEvent(self,e):
-        e.accept()
-
-    def dropEvent(self,e):
-        self.changePDF(e.mimeData().text())
-
-    def changePDF(self,pdf_path):
-        self.pdf_path = pdf_path
-        self.wvTest.load(QUrl.fromUserInput('%s?file=%s' % (self.pdf_js_path, self.pdf_path)))
 
 
 class MainWindow(QMainWindow):
@@ -89,7 +88,7 @@ class MainWindow(QMainWindow):
 
         self.pdfWrapper = PDFViewWrapperView()
         hBoxLayout = QHBoxLayout()
-        hBoxLayout.addWidget(self.pdfWrapper)
+        hBoxLayout.addWidget(self.pdfWrapper.wvTest)
         hBoxLayout.addWidget(gbox)
         hBoxLayout.setStretch(0, 9)
         hBoxLayout.setStretch(1, 3)

@@ -5,7 +5,7 @@
 
 ## 效果图
 
-![效果图](sample/sample.png)
+![效果图](sample.png)
 
 ## 技术栈
 

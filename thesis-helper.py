@@ -22,7 +22,7 @@ MAX_CHARACTERS = 5000
 class WebView(QWebEngineView):
     def __init__(self):
         super(WebView, self).__init__()
-        self.pdf_js_path = "file:///" + os.path.join(os.getcwd(), "thesisUtils", "web", "viewer.html")
+        self.pdf_js_path = "file:///" + os.path.join(os.getcwd(), "pdfjs", "web", "viewer.html")
         pdf_path = "file:///" + os.path.join(os.getcwd(), "sample", "sample_2.pdf")        
         if sys.platform == "win32":
             self.pdf_js_path = self.pdf_js_path.replace('\\', '/')

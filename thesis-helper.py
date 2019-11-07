@@ -130,7 +130,7 @@ class MainWindow(QMainWindow):
                     self.recent_text = to_translate_text
                     self.translate_ori.setText(filtered)
                     self.translate_res.setText(hint_str)
-                    self.thread_my.setTranslateText(filtered)
+                    # self.thread_my.setTranslateText(filtered)
 
     def updateByTextEdit(self):
         print('TextEdited')
@@ -148,3 +148,4 @@ if __name__ == '__main__':
     con.pdfViewMouseRelease.connect(mainWindow.updateByMouseRelease)
     mainWindow.translate_ori.textChanged.connect(mainWindow.updateByTextEdit)
     sys.exit(app.exec_())
+    

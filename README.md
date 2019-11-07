@@ -26,7 +26,10 @@
 
 ### Linux & Mac OS
 
-至少需要有Python环境。
+至少需要有Python环境，然后安装依赖
+```shell
+pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
+```
 
 #### 有Git环境
 
@@ -35,7 +38,7 @@
 ```shell
 git clone git@github.com:muhualing/thesis-helper.git
 cd thesis-helper
-pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
+
 chmod a+x thesis-helper.py
 ./thesis-helper.py # or python thesis-helper.py
 ```

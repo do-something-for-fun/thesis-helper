@@ -29,8 +29,7 @@ class WebView(QWebEngineView):
             pdf_path = pdf_path.replace('\\', '/')
         self.changePDF(pdf_path)
         self.setAcceptDrops(True)
-        self.installEventFilter(self)
-
+        self.installEventFilter(self)   
     def dragEnterEvent(self,e):
         """
         Detect mouse drag something into the view
@@ -38,9 +37,11 @@ class WebView(QWebEngineView):
         :param e: Mouse event
         :return: None
         """
-        # print('drag')
-        e.accept()
-
+        if e.mimeData().hasFormat('text/plain') and e.mimeData().text()[-6:-2] == ".pdf":
+            e.accept()
+        else:
+            e.ignore()
+            # QMessageBox.about(self, "提示", "所选文件不是pdf格式的文件") 这行会卡死 不知道为啥
     def dropEvent(self,e):
         """
         Detect mouse release event the view and state before release is dragging
@@ -62,13 +63,13 @@ class WebView(QWebEngineView):
             print('child add')
             self._glwidget = e.child()
             self._glwidget.installEventFilter(self)
-        # if e.type() == QEvent.ChildRemoved and e.child.isWidgetType():
-        #     # print('child removed')
-        #     if self._glwidget is not None:
-        #         self._glwidget.removeEventFilter(self)
-        # if e.type() == QEvent.Close:
-        #     # print('close webView')
-        #     self.removeEventFilter(self)
+        if(e.type() == QEvent.ChildRemoved and e.child().isWidgetType()):
+            # print('child removed')
+            if(self._glwidget is not None):
+                self._glwidget.removeEventFilter(self)
+        if(e.type() == QEvent.Close):
+            # print('close webView')
+            self.removeEventFilter(self)
         return super().event(e)
 
     def eventFilter(self, source, event):

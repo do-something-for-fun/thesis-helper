@@ -1,5 +1,5 @@
 import requests, uuid
-from googletrans import Translator
+from googletrans import Translator,models
 from googletrans import urls, utils
 from googletrans.compat import PY3
 from googletrans.constants import DEFAULT_USER_AGENT
@@ -24,10 +24,54 @@ class MyTranslator(Translator):
         data = utils.format_json(r.text)
         return data
 
+def get_extra_result_of_single_word(word, translator):
+    """
+
+    :param word: single word string contain no space
+    :param translator: google translator object
+    :return: result string
+    """
+    translate_res = translator.translate(word, dest='zh-cn')
+    extra_data = translate_res.extra_data
+    all_translations_list = extra_data['all-translations']
+    result = ''
+    if all_translations_list is None:
+        result = translate_res.text
+        pass
+    else:
+        for translation in all_translations_list:
+            word_class = translation[0]
+            result += word_class + '\n\t'
+            word_tsl_list = translation[2]
+            for tsl in word_tsl_list:
+                tsl_res = tsl[0]
+                tsl_src_list = tsl[1]
+                tsl_src = ''
+                # obj = ''
+                # confidence = 0
+                if tsl_src_list is None:
+                    pass
+                else:
+                    for i in tsl_src_list:
+                        tsl_src += i + ' '
+                # if len(tsl) <3:
+                #     pass
+                # else:
+                #     obj = tsl[2]
+                #     confidence = tsl[3]
+                result += '{0} [{1}]\n\t'.format(tsl_res, tsl_src)
+            result += '\n'
+    return result
+
+    pass
+
 def get_translation_by_google(text_input):
     translator = MyTranslator(service_urls=["translate.google.cn"])
-    translate_res = translator.translate(text_input, dest='zh-cn')
-    return translate_res.text
+    if len(text_input.split()) == 1:
+        trans_result = get_extra_result_of_single_word(text_input.split()[0], translator)
+    else:
+        trans_result = translator.translate(text_input, dest='zh-cn').text
+    return trans_result
 
 def get_translation(text_input, language_output="zh-Hans"):
     if not text_input:

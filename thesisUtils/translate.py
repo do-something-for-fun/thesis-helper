@@ -41,7 +41,7 @@ def get_extra_result_of_single_word(word, translator):
     else:
         for translation in all_translations_list:
             word_class = translation[0]
-            result += word_class + '\n\t'
+            result += word_class + '\n    '
             word_tsl_list = translation[2]
             for tsl in word_tsl_list:
                 tsl_res = tsl[0]
@@ -59,7 +59,7 @@ def get_extra_result_of_single_word(word, translator):
                 # else:
                 #     obj = tsl[2]
                 #     confidence = tsl[3]
-                result += '{0} [{1}]\n\t'.format(tsl_res, tsl_src)
+                result += '{0} [{1}]\n    '.format(tsl_res, tsl_src)
             result += '\n'
     return result
 

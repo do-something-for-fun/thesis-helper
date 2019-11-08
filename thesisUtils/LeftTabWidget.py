@@ -40,7 +40,6 @@ class LeftTabWidget(QWidget):
 
         # Local PDF
         self.local_pdf_path_list, self.local_pdf_name_list = list(self.getLocalPDF())
-        print(self.local_pdf_path_list)
         self.list_widget_of_local_pdf = QListWidget()
         self.list_widget_of_local_pdf.addItems(self.local_pdf_name_list)
         self.local_pdf_layout = QVBoxLayout(self.list_widget_of_local_pdf)
@@ -71,8 +70,8 @@ class LeftTabWidget(QWidget):
 
         # clicked event definition
         # for button
-        self.local_pdf.clicked.connect(self.on_pushButton1_clicked)
-        self.history_pdf.clicked.connect(self.on_pushButton2_clicked)
+        self.local_pdf.clicked.connect(self.localPDFClicked)
+        self.history_pdf.clicked.connect(self.historyPDFClicked)
         self.pushButton3.clicked.connect(self.on_pushButton3_clicked)
         self.hide_button.clicked.connect(self.hide_button_clicked)
         # for item
@@ -89,15 +88,12 @@ class LeftTabWidget(QWidget):
         self.history_pdf.setEnabled(not self.stacked_widget.isHidden())
         self.pushButton3.setEnabled(not self.stacked_widget.isHidden())
 
-    # 按钮一：打开第一个面板
-    def on_pushButton1_clicked(self):
+    def localPDFClicked(self):
         self.stacked_widget.setCurrentIndex(0)
 
-    # 按钮二：打开第二个面板
-    def on_pushButton2_clicked(self):
+    def historyPDFClicked(self):
         self.stacked_widget.setCurrentIndex(1)
 
-    # 按钮三：打开第三个面板
     def on_pushButton3_clicked(self):
         self.stacked_widget.setCurrentIndex(2)
 

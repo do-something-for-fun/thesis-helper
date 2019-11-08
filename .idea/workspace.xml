@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="e5434284-d2d6-40d8-9028-95be1b6ea9ea" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/thesis-helper.py" beforeDir="false" afterPath="$PROJECT_DIR$/thesis-helper.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/thesisUtils/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/thesisUtils/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/thesisUtils/LeftTabWidget.py" beforeDir="false" afterPath="$PROJECT_DIR$/thesisUtils/LeftTabWidget.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,14 +15,14 @@
     <session id="714120503">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="5" />
+          <entry key="project.closed" value="6" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.12" value="1" />
-          <entry key="project.open.time.14" value="1" />
+          <entry key="project.open.time.14" value="2" />
           <entry key="project.open.time.15" value="1" />
           <entry key="project.open.time.7" value="1" />
-          <entry key="project.opened" value="6" />
+          <entry key="project.opened" value="7" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -31,6 +30,7 @@
           <entry key="css" value="1" />
           <entry key="gitignore" value="2" />
           <entry key="html" value="2" />
+          <entry key="ini" value="2" />
           <entry key="js" value="6" />
           <entry key="map" value="1" />
           <entry key="png" value="8" />
@@ -46,7 +46,7 @@
           <entry key="HTML" value="2" />
           <entry key="Image" value="8" />
           <entry key="JavaScript" value="6" />
-          <entry key="PLAIN_TEXT" value="5" />
+          <entry key="PLAIN_TEXT" value="7" />
           <entry key="Python" value="18" />
           <entry key="SVG" value="1" />
         </counts>
@@ -55,6 +55,7 @@
         <counts>
           <entry key="css" value="38" />
           <entry key="html" value="63" />
+          <entry key="ini" value="2" />
           <entry key="js" value="443" />
           <entry key="py" value="2665" />
         </counts>
@@ -64,6 +65,7 @@
           <entry key="CSS" value="38" />
           <entry key="HTML" value="63" />
           <entry key="JavaScript" value="443" />
+          <entry key="PLAIN_TEXT" value="2" />
           <entry key="Python" value="2665" />
         </counts>
       </usages-collector>
@@ -71,11 +73,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/thesis-helper.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="130">
-              <caret line="54" column="40" lean-forward="true" selection-start-line="54" selection-start-column="40" selection-end-line="54" selection-end-column="40" />
+            <state relative-caret-position="376">
+              <caret line="60" column="49" selection-start-line="60" selection-start-column="49" selection-end-line="60" selection-end-column="49" />
               <folding>
                 <element signature="e#161#170#0" expanded="true" />
               </folding>
@@ -83,15 +85,13 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/thesisUtils/LeftTabWidget.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="302">
-              <caret line="104" lean-forward="true" selection-start-line="104" selection-end-line="104" />
+            <state relative-caret-position="307">
+              <caret line="80" column="45" lean-forward="true" selection-start-line="80" selection-start-column="45" selection-end-line="80" selection-end-column="45" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
-                <marker date="1573203906304" expanded="true" signature="3244:3298" ph="..." />
-                <marker date="1573203906304" expanded="true" signature="3328:3622" ph="..." />
               </folding>
             </state>
           </provider>
@@ -129,6 +129,7 @@
         <option value="$PROJECT_DIR$/thesisUtils/__init__.py" />
         <option value="$PROJECT_DIR$/docs/QListWidgetQSS.qss" />
         <option value="$PROJECT_DIR$/thesis-helper.py" />
+        <option value="$PROJECT_DIR$/CONFIG.ini" />
         <option value="$PROJECT_DIR$/thesisUtils/LeftTabWidget.py" />
       </list>
     </option>
@@ -147,7 +148,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -158,12 +158,13 @@
             <path>
               <item name="thesis-helper" type="b2602c69:ProjectViewProjectNode" />
               <item name="thesis-helper" type="462c0819:PsiDirectoryNode" />
-              <item name="sample" type="462c0819:PsiDirectoryNode" />
+              <item name="thesisUtils" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -403,24 +404,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/thesisUtils/LeftTabWidget.py">
+    <entry file="file://$PROJECT_DIR$/CONFIG.ini" />
+    <entry file="file://$PROJECT_DIR$/thesis-helper.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
-          <caret line="104" lean-forward="true" selection-start-line="104" selection-end-line="104" />
+        <state relative-caret-position="376">
+          <caret line="60" column="49" selection-start-line="60" selection-start-column="49" selection-end-line="60" selection-end-column="49" />
           <folding>
-            <element signature="e#0#10#0" expanded="true" />
-            <marker date="1573203906304" expanded="true" signature="3244:3298" ph="..." />
-            <marker date="1573203906304" expanded="true" signature="3328:3622" ph="..." />
+            <element signature="e#161#170#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/thesis-helper.py">
+    <entry file="file://$PROJECT_DIR$/thesisUtils/LeftTabWidget.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="130">
-          <caret line="54" column="40" lean-forward="true" selection-start-line="54" selection-start-column="40" selection-end-line="54" selection-end-column="40" />
+        <state relative-caret-position="307">
+          <caret line="80" column="45" lean-forward="true" selection-start-line="80" selection-start-column="45" selection-end-line="80" selection-end-column="45" />
           <folding>
-            <element signature="e#161#170#0" expanded="true" />
+            <element signature="e#0#10#0" expanded="true" />
           </folding>
         </state>
       </provider>

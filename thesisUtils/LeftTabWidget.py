@@ -23,6 +23,9 @@ class LeftTabWidget(QWidget):
         self.hide_button = QPushButton(qtawesome.icon('fa.circle', color='red'), '')
         self.button_layout.addWidget(self.hide_button)
 
+        self.update_button = QPushButton(qtawesome.icon('fa.cloud', color='red'), '')
+        self.button_layout.addWidget(self.update_button)
+
         self.local_pdf = QPushButton(qtawesome.icon('fa.home', color='red'), '')
         self.button_layout.addWidget(self.local_pdf)
 
@@ -45,13 +48,10 @@ class LeftTabWidget(QWidget):
         self.local_pdf_layout = QVBoxLayout(self.list_widget_of_local_pdf)
 
         # History PDF
-        self.form2 = QWidget()
-        self.formLayout2 = QHBoxLayout(self.form2)
-        self.label2 = QLabel()
-        self.label2.setText("History PDF")
-        self.label2.setSizePolicy(QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding))
-        self.label2.setAlignment(Qt.AlignCenter)
-        self.formLayout2.addWidget(self.label2)
+        self.history_pdf_path_list, self.history_pdf_name_list = self.getHistoryPDF()
+        self.list_widget_of_history_pdf = QListWidget()
+        self.list_widget_of_history_pdf.addItems(self.history_pdf_name_list)
+        self.history_pdf_layout = QVBoxLayout(self.list_widget_of_history_pdf)
 
         # TODO
         self.form3 = QWidget()
@@ -65,24 +65,34 @@ class LeftTabWidget(QWidget):
 
         # add widgets to stacked_widget
         self.stacked_widget.addWidget(self.list_widget_of_local_pdf)
-        self.stacked_widget.addWidget(self.form2)
+        self.stacked_widget.addWidget(self.list_widget_of_history_pdf)
         self.stacked_widget.addWidget(self.form3)
 
         # clicked event definition
         # for button
+        self.update_button.clicked.connect(self.updateButtonClicked)
         self.local_pdf.clicked.connect(self.localPDFClicked)
         self.history_pdf.clicked.connect(self.historyPDFClicked)
         self.pushButton3.clicked.connect(self.on_pushButton3_clicked)
-        self.hide_button.clicked.connect(self.hide_button_clicked)
+        self.hide_button.clicked.connect(self.hideButtonClicked)
         # for item
-        self.list_widget_of_local_pdf.itemDoubleClicked.connect(self.listWidgetDBClicked)
+        self.list_widget_of_local_pdf.itemDoubleClicked.connect(self.localListWidgetDBClicked)
+        self.list_widget_of_history_pdf.itemDoubleClicked.connect(self.historyListWidgetDBClicked)
 
-    def listWidgetDBClicked(self, item):
+    def updateButtonClicked(self):
+        self._updateHistory()
+
+    def historyListWidgetDBClicked(self, item):
+        for path in self.history_pdf_path_list:
+            if item.text() in path.lower():
+                self.pdfWrapper.changePDF(path)
+
+    def localListWidgetDBClicked(self, item):
         for path in self.local_pdf_path_list:
             if item.text() in path:
                 self.pdfWrapper.changePDF(path)
 
-    def hide_button_clicked(self):
+    def hideButtonClicked(self):
         self.stacked_widget.setHidden(not self.stacked_widget.isHidden())
         self.local_pdf.setEnabled(not self.stacked_widget.isHidden())
         self.history_pdf.setEnabled(not self.stacked_widget.isHidden())
@@ -102,6 +112,9 @@ class LeftTabWidget(QWidget):
         :param roots: should be absolute path
         :return: pdf path and pdf name
         """
+        if roots == 'none':
+            return [], []
+
         def _getFullPath():
             for root, dirs, files in os.walk(roots, topdown=True):
                 for name in files:
@@ -116,6 +129,20 @@ class LeftTabWidget(QWidget):
                         yield name.split('.')[0]
 
         return list(_getFullPath()), list(_getFullName())
+
+    def getHistoryPDF(self):
+        tp = config.items('history_pdf')
+        name_list = []
+        path_list = []
+        for item in tp:
+            name_list.append(item[0])
+            path_list.append(item[1])
+        return path_list, name_list
+
+    def _updateHistory(self):
+        self.history_pdf_path_list, self.history_pdf_name_list = self.getHistoryPDF()
+        self.list_widget_of_history_pdf.clear()
+        self.list_widget_of_history_pdf.addItems(self.history_pdf_name_list)
 
 
 if __name__ == "__main__":

@@ -16,6 +16,7 @@ from thesisUtils.controller import con
 from thesisUtils.watch_clip import WatchClip
 from thesisUtils.text_filter import TextFilter
 from thesisUtils.LeftTabWidget import LeftTabWidget
+from thesisUtils.configure import config
 
 MAX_CHARACTERS = 5000
 
@@ -62,6 +63,12 @@ class WebView(QWebEngineView):
 
     def changePDF(self, pdf_path):
         self.load(QUrl.fromUserInput('%s?file=%s' % (self.pdf_js_path, pdf_path)))
+        if sys.platform == 'win32' and 'sample' not in pdf_path:
+            if '/' in pdf_path:
+                config.set('history_pdf', pdf_path.split('/')[-1].split('.')[0], pdf_path)
+            else:
+                config.set('history_pdf', pdf_path.split('\\')[-1].split('.')[0], pdf_path)
+            config.write(open('CONFIG.ini', 'w'))
 
 
 class MainWindow(QMainWindow):

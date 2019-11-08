@@ -15,8 +15,8 @@ from PyQt5.QtWidgets import (QWidget,
 from thesisUtils.controller import con
 from thesisUtils.watch_clip import WatchClip
 from thesisUtils.text_filter import TextFilter
+from thesisUtils.LeftTabWidget import LeftTabWidget
 
-#
 MAX_CHARACTERS = 5000
 
 
@@ -92,11 +92,14 @@ class MainWindow(QMainWindow):
         gbox.setLayout(vbox)
 
         self.pdfWrapper = WebView()
+        self.left_tab_widget = LeftTabWidget(self.pdfWrapper)
         hBoxLayout = QHBoxLayout()
+        hBoxLayout.addWidget(self.left_tab_widget)
         hBoxLayout.addWidget(self.pdfWrapper)
         hBoxLayout.addWidget(gbox)
-        hBoxLayout.setStretch(0, 9)
-        hBoxLayout.setStretch(1, 3)
+        hBoxLayout.setStretch(0, 1)
+        hBoxLayout.setStretch(1, 40)
+        hBoxLayout.setStretch(2, 12)
 
         widget = QWidget()
         widget.setLayout(hBoxLayout)

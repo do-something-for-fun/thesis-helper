@@ -8,6 +8,20 @@ import os
 import sys
 from PyQt5.QtWebEngineWidgets import QWebEngineView
 from PyQt5.QtCore import QUrl,pyqtSignal,QEvent,Qt
+import platform
+sysstr = platform.system()
+is_win = is_linux = is_mac = False
+
+if sysstr == "Windows":
+
+    is_win = True
+elif sysstr == "Linux":
+    is_linux = True
+elif sysstr == "Mac":
+    is_mac = True
+
+
+print('System: %s' % sysstr)
 from PyQt5.QtGui import QColor
 from PyQt5.QtWidgets import (
     QWidget, QHBoxLayout, QVBoxLayout, QMainWindow,
@@ -24,7 +38,9 @@ MAX_CHARACTERS = 5000
 
 class WebView(QWebEngineView):
     def __init__(self):
+        print('init webView')
         super(WebView, self).__init__()
+        self._glwidget = None
         self.pdf_js_path = "file:///" + os.path.join(os.getcwd(), "pdfjs", "web", "viewer.html")
         pdf_path = "file:///" + os.path.join(os.getcwd(), "sample", "sample_2.pdf")        
         if sys.platform == "win32":
@@ -32,7 +48,8 @@ class WebView(QWebEngineView):
             pdf_path = pdf_path.replace('\\', '/')
         self.changePDF(pdf_path)
         self.setAcceptDrops(True)
-        self.installEventFilter(self)   
+        self.installEventFilter(self)
+
     def dragEnterEvent(self,e):
         """
         Detect mouse drag something into the view
@@ -40,10 +57,17 @@ class WebView(QWebEngineView):
         :param e: Mouse event
         :return: None
         """
-        if e.mimeData().hasFormat('text/plain') and e.mimeData().text()[-6:-2] == ".pdf":
-            e.accept()
-        else:
-            e.ignore()
+        if is_linux or is_mac:
+            if e.mimeData().hasFormat('text/plain') and e.mimeData().text()[-6:-2] == ".pdf":
+                e.accept()
+            else:
+                e.ignore()
+        elif is_win:
+            if e.mimeData().text()[-4:] == ".pdf":
+                e.accept()
+            else:
+                e.ignore()
+
             # QMessageBox.about(self, "提示", "所选文件不是pdf格式的文件") 这行会卡死 不知道为啥
     def dropEvent(self,e):
         """
@@ -62,17 +86,19 @@ class WebView(QWebEngineView):
         :param e: QEvent
         :return: super().event(e)
         """
-        if e.type() == QEvent.ChildAdded and e.child().isWidgetType():
-            print('child add')
-            self._glwidget = e.child()
-            self._glwidget.installEventFilter(self)
-        if(e.type() == QEvent.ChildRemoved and e.child().isWidgetType()):
-            # print('child removed')
-            if(self._glwidget is not None):
-                self._glwidget.removeEventFilter(self)
-        if(e.type() == QEvent.Close):
-            # print('close webView')
-            self.removeEventFilter(self)
+        if self._glwidget is None:
+            if e.type() == QEvent.ChildAdded and e.child().isWidgetType():
+                    print('child add')
+
+                    self._glwidget = e.child()
+                    self._glwidget.installEventFilter(self)
+        # if(e.type() == QEvent.ChildRemoved and e.child().isWidgetType()):
+        #     # print('child removed')
+        #     if(self._glwidget is not None):
+        #         self._glwidget.removeEventFilter(self)
+        # if(e.type() == QEvent.Close):
+        #     # print('close webView')
+        #     self.removeEventFilter(self)
         return super().event(e)
 
     def eventFilter(self, source, event):

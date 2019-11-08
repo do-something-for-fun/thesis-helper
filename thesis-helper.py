@@ -10,7 +10,7 @@ from PyQt5.QtWebEngineWidgets import QWebEngineView
 from PyQt5.QtCore import QUrl,pyqtSignal,QEvent
 from PyQt5.QtGui import QColor
 from PyQt5.QtWidgets import (QWidget,
-    QHBoxLayout, QVBoxLayout, QMainWindow, QTextEdit, QGroupBox,QApplication, QLabel, QTextBrowser)
+    QHBoxLayout, QVBoxLayout, QMainWindow, QTextEdit, QGroupBox,QApplication, QLabel, QPlainTextEdit)
 
 from thesisUtils.controller import con
 from thesisUtils.watch_clip import WatchClip
@@ -59,7 +59,7 @@ class WebView(QWebEngineView):
         :return: super().event(e)
         """
         if e.type() == QEvent.ChildAdded and e.child().isWidgetType():
-            # print('child add')
+            print('child add')
             self._glwidget = e.child()
             self._glwidget.installEventFilter(self)
         # if e.type() == QEvent.ChildRemoved and e.child.isWidgetType():
@@ -87,22 +87,26 @@ class MainWindow(QMainWindow):
 
         self.setWindowTitle("毕业论文小助手")
 
-        self.translate_ori = QTextEdit()
-        self.translate_ori.setTextBackgroundColor(QColor(127, 127, 127, 60))
+        self.translate_ori = QPlainTextEdit()
+        # self.translate_ori.setTextBackgroundColor(QColor(127, 127, 127, 60))
+        # self.translate_ori.setTextColor(QColor(0, 0, 0, 0))
+
         self.translate_ori.setStyleSheet("font: 12pt Roboto")
 
-        self.translate_res = QTextEdit()
+        self.translate_res = QPlainTextEdit()
         self.translate_res.setStyleSheet("font: 12pt Roboto")
 
-        self.label = QLabel('翻译原文')
+        self.label_ori = QLabel('原文')
+        self.label_res = QLabel('译文')
 
         self.filter = TextFilter()
         vbox = QVBoxLayout()
-        vbox.addWidget(self.translate_res)
-        vbox.addWidget(self.label)
+        vbox.addWidget(self.label_ori)
         vbox.addWidget(self.translate_ori)
+        vbox.addWidget(self.label_res)
+        vbox.addWidget(self.translate_res)
 
-        gbox = QGroupBox("中文翻译结果")
+        gbox = QGroupBox()
         gbox.setStyleSheet("font: 12pt Roboto")
         gbox.setLayout(vbox)
 
@@ -121,7 +125,7 @@ class MainWindow(QMainWindow):
 
     def updateTranslation(self, cur_text):
         self.translate_res.clear()
-        self.translate_res.setText(cur_text)
+        self.translate_res.setPlainText(cur_text)
 
     def updateByMouseRelease(self):
         # print('no seletion to translate')
@@ -143,8 +147,8 @@ class MainWindow(QMainWindow):
                     filtered = self.filter.removeDashLine(to_translate_text)
                     # print(filtered)
                     self.recent_text = to_translate_text
-                    self.translate_ori.setText(filtered)
-                    self.translate_res.setText(hint_str)
+                    self.translate_ori.setPlainText(filtered)
+                    self.translate_res.setPlainText(hint_str)
                     # self.thread_my.setTranslateText(filtered)
 
     def updateByTextEdit(self):

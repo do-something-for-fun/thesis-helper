@@ -7,10 +7,13 @@
 import os
 import sys
 from PyQt5.QtWebEngineWidgets import QWebEngineView
-from PyQt5.QtCore import QUrl,pyqtSignal,QEvent
+from PyQt5.QtCore import QUrl,pyqtSignal,QEvent,Qt
 from PyQt5.QtGui import QColor
-from PyQt5.QtWidgets import (QWidget,
-    QHBoxLayout, QVBoxLayout, QMainWindow, QTextEdit, QGroupBox,QApplication, QLabel, QPlainTextEdit)
+from PyQt5.QtWidgets import (
+    QWidget, QHBoxLayout, QVBoxLayout, QMainWindow,
+    QGroupBox,QApplication, QLabel, QPlainTextEdit,
+    QComboBox
+)
 
 from thesisUtils.controller import con
 from thesisUtils.watch_clip import WatchClip
@@ -97,14 +100,47 @@ class MainWindow(QMainWindow):
         self.translate_res = QPlainTextEdit()
         self.translate_res.setStyleSheet("font: 12pt Roboto")
 
-        self.label_ori = QLabel('原文')
-        self.label_res = QLabel('译文')
+        self.selectable_text_size = ['8','9','10','11','12','13','14','15',]
+
+        self.text_size_combobox_ori = QComboBox()
+        self.text_size_combobox_ori.addItems(self.selectable_text_size)
+        self.text_size_combobox_ori.setCurrentIndex(4)
+
+        self.text_size_combobox_res = QComboBox()
+        self.text_size_combobox_res.addItems(self.selectable_text_size)
+        self.text_size_combobox_res.setCurrentIndex(4)
+
+
+        label1 = QLabel('字体大小:')
+        label1.setAlignment(Qt.AlignRight|Qt.AlignVCenter)
+        label2 = QLabel('字体大小:')
+        label2.setAlignment(Qt.AlignRight | Qt.AlignVCenter)
+
+        oriHboxLayout = QHBoxLayout()
+        oriHboxLayout.addWidget(QLabel('原文'))
+        oriHboxLayout.addWidget(label1)
+        oriHboxLayout.addWidget(self.text_size_combobox_ori)
+        oriHboxLayout.setStretch(0,6)
+        oriHboxLayout.setStretch(1,3)
+        oriHboxLayout.setStretch(2,3)
+        oriWidget = QWidget()
+        oriWidget.setLayout(oriHboxLayout)
+
+        resHboxLayout = QHBoxLayout()
+        resHboxLayout.addWidget(QLabel('译文'))
+        resHboxLayout.addWidget(label2)
+        resHboxLayout.addWidget(self.text_size_combobox_res)
+        resHboxLayout.setStretch(0,6)
+        resHboxLayout.setStretch(1,3)
+        resHboxLayout.setStretch(2,3)
+        resWidget = QWidget()
+        resWidget.setLayout(resHboxLayout)
 
         self.filter = TextFilter()
         vbox = QVBoxLayout()
-        vbox.addWidget(self.label_ori)
+        vbox.addWidget(oriWidget)
         vbox.addWidget(self.translate_ori)
-        vbox.addWidget(self.label_res)
+        vbox.addWidget(resWidget)
         vbox.addWidget(self.translate_res)
 
         gbox = QGroupBox()
@@ -156,6 +192,12 @@ class MainWindow(QMainWindow):
         # print('TextEdited')
         self.thread_my.setTranslateText(self.translate_ori.toPlainText())
 
+    def updateOriTextSizeByIndexChanged(self, index):
+        self.translate_ori.setStyleSheet("font: {0}pt Roboto".format(self.selectable_text_size[index]))
+
+    def updateResTextSizeByIndexChanged(self, index):
+        self.translate_res.setStyleSheet("font: {0}pt Roboto".format(self.selectable_text_size[index]))
+
     def closeEvent(self, event):
         self.thread_my.expired()
 
@@ -167,5 +209,7 @@ if __name__ == '__main__':
     con.translationChanged.connect(mainWindow.updateTranslation)
     con.pdfViewMouseRelease.connect(mainWindow.updateByMouseRelease)
     mainWindow.translate_ori.textChanged.connect(mainWindow.updateByTextEdit)
+    mainWindow.text_size_combobox_ori.currentIndexChanged.connect(mainWindow.updateOriTextSizeByIndexChanged)
+    mainWindow.text_size_combobox_res.currentIndexChanged.connect(mainWindow.updateResTextSizeByIndexChanged)
     sys.exit(app.exec_())
     

@@ -4,7 +4,7 @@ from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 import qtawesome
 import os
-
+from thesisUtils.configure import config
 
 class LeftTabWidget(QWidget):
     def __init__(self, pdfWrapper):
@@ -39,7 +39,7 @@ class LeftTabWidget(QWidget):
         self.stacked_widget.setMinimumWidth(250)
 
         # Local PDF
-        self.local_pdf_path_list, self.local_pdf_name_list = list(self.getLocalPDF())
+        self.local_pdf_path_list, self.local_pdf_name_list = list(self.getLocalPDF(config['local_pdf']['roots']))
         self.list_widget_of_local_pdf = QListWidget()
         self.list_widget_of_local_pdf.addItems(self.local_pdf_name_list)
         self.local_pdf_layout = QVBoxLayout(self.list_widget_of_local_pdf)
@@ -97,8 +97,11 @@ class LeftTabWidget(QWidget):
     def on_pushButton3_clicked(self):
         self.stacked_widget.setCurrentIndex(2)
 
-    def getLocalPDF(self, roots='G:\\Let_the_boy_fly'):
-
+    def getLocalPDF(self, roots=''):
+        """
+        :param roots: should be absolute path
+        :return: pdf path and pdf name
+        """
         def _getFullPath():
             for root, dirs, files in os.walk(roots, topdown=True):
                 for name in files:
@@ -116,7 +119,4 @@ class LeftTabWidget(QWidget):
 
 
 if __name__ == "__main__":
-    app = QApplication(sys.argv)
-    left_tab_widget = LeftTabWidget()
-    left_tab_widget.show()
-    sys.exit(app.exec_())
+    print(config["local_pdf"]["roots"])

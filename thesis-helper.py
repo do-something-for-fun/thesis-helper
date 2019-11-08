@@ -24,7 +24,7 @@ class WebView(QWebEngineView):
     def __init__(self):
         super(WebView, self).__init__()
         self.pdf_js_path = "file:///" + os.path.join(os.getcwd(), "pdfjs", "web", "viewer.html")
-        pdf_path = "file:///" + os.path.join(os.getcwd(), "sample", "sample_2.pdf")        
+        pdf_path = "file:///" + os.path.join(os.getcwd(), "sample", "sample_2.pdf")
         if sys.platform == "win32":
             self.pdf_js_path = self.pdf_js_path.replace('\\', '/')
             pdf_path = pdf_path.replace('\\', '/')

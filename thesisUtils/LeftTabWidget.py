@@ -120,7 +120,7 @@ class LeftTabWidget(QWidget):
                 for name in files:
                     if name.split('.')[1] == 'pdf':
                         full_path = os.path.join(root, name)
-                        yield full_path
+                        yield full_path.replace('\\', '/')
 
         def _getFullName():
             for root, dirs, files in os.walk(roots, topdown=True):
@@ -143,6 +143,11 @@ class LeftTabWidget(QWidget):
         self.history_pdf_path_list, self.history_pdf_name_list = self.getHistoryPDF()
         self.list_widget_of_history_pdf.clear()
         self.list_widget_of_history_pdf.addItems(self.history_pdf_name_list)
+
+    def updateLocal(self):
+        self.local_pdf_path_list, self.local_pdf_name_list = list(self.getLocalPDF(config['local_pdf']['roots']))
+        self.list_widget_of_local_pdf.clear()
+        self.list_widget_of_local_pdf.addItems(self.local_pdf_name_list)
 
 
 if __name__ == "__main__":

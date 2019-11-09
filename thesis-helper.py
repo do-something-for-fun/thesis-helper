@@ -216,8 +216,16 @@ class MainWindow(QMainWindow):
         if qaction.text() == 'Open PDF':
             fd = QFileDialog.getOpenFileName(self, 'Choose a PDF', './', 'All(*.*);;PDF(*.pdf)', 'PDF(*.pdf)')
             self.pdfWrapper.changePDF(fd[0])
+        elif qaction.text() == 'Open PDFs':
+            fd = QFileDialog.getOpenFileNames(self, 'Choose PDFs', './', 'All(*.*);;PDF(*.pdf)', 'PDF(*.pdf)')
+            print(fd)
         elif qaction.text() == 'Open Folder':
-            print('open folder')
+            fd = QFileDialog.getExistingDirectory(self, 'Choose a directory', './')
+            # update the roots in CONFIG.ini
+            config.set('local_pdf', 'roots', fd)
+            config.write(open('CONFIG.ini', 'w'))
+            # update the local_pdf view in UI
+            self.left_tab_widget.updateLocal()
 
     def updateTranslation(self, cur_text):
         self.translate_res.clear()

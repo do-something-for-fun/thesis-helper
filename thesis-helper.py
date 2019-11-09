@@ -26,7 +26,7 @@ from PyQt5.QtGui import QColor
 from PyQt5.QtWidgets import (
     QWidget, QHBoxLayout, QVBoxLayout, QMainWindow,
     QGroupBox,QApplication, QLabel, QPlainTextEdit,
-    QComboBox
+    QComboBox, QAction, QMenuBar, QMenu, QFileDialog
 )
 
 from thesisUtils.controller import con
@@ -125,7 +125,6 @@ class MainWindow(QMainWindow):
         self.thread_my.start()
 
         self.setWindowTitle("毕业论文小助手")
-
         self.translate_ori = QPlainTextEdit()
         # self.translate_ori.setTextBackgroundColor(QColor(127, 127, 127, 60))
         # self.translate_ori.setTextColor(QColor(0, 0, 0, 0))
@@ -197,6 +196,28 @@ class MainWindow(QMainWindow):
         self.setCentralWidget(widget)
         self.recent_text = ""
         self.showMaximized()
+
+        # create the menu bar
+        self.menu_bar = self.menuBar()
+        self.file = self.menu_bar.addMenu('File')
+
+        self.open_pdf = QAction('Open PDF', self)
+        self.open_pdf.setShortcut('Ctrl+O')
+        self.file.addAction(self.open_pdf)
+
+        self.open_dir = QAction('Open Folder', self)
+        self.open_dir.setShortcut('Ctrl+Shift+O')
+        self.file.addAction(self.open_dir)
+
+        # self.file is listening
+        self.file.triggered[QAction].connect(self.openDir)
+
+    def openDir(self, qaction):
+        if qaction.text() == 'Open PDF':
+            fd = QFileDialog.getOpenFileName(self, 'Choose a PDF', './', 'All(*.*);;PDF(*.pdf)', 'PDF(*.pdf)')
+            self.pdfWrapper.changePDF(fd[0])
+        elif qaction.text() == 'Open Folder':
+            print('open folder')
 
     def updateTranslation(self, cur_text):
         self.translate_res.clear()

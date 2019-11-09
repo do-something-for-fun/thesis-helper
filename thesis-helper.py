@@ -26,15 +26,17 @@ from PyQt5.QtGui import QColor
 from PyQt5.QtWidgets import (
     QWidget, QHBoxLayout, QVBoxLayout, QMainWindow,
     QGroupBox,QApplication, QLabel, QPlainTextEdit,
-    QComboBox
+    QComboBox, QAction, QMenuBar, QMenu, QFileDialog
 )
 
 from thesisUtils.controller import con
 from thesisUtils.watch_clip import WatchClip
 from thesisUtils.text_filter import TextFilter
-
+from thesisUtils.LeftTabWidget import LeftTabWidget
+from thesisUtils.configure import config
 
 MAX_CHARACTERS = 5000
+
 
 class WebView(QWebEngineView):
     def __init__(self):
@@ -42,7 +44,7 @@ class WebView(QWebEngineView):
         super(WebView, self).__init__()
         self._glwidget = None
         self.pdf_js_path = "file:///" + os.path.join(os.getcwd(), "pdfjs", "web", "viewer.html")
-        pdf_path = "file:///" + os.path.join(os.getcwd(), "sample", "sample_2.pdf")        
+        pdf_path = "file:///" + os.path.join(os.getcwd(), "sample", "sample_2.pdf")
         if sys.platform == "win32":
             self.pdf_js_path = self.pdf_js_path.replace('\\', '/')
             pdf_path = pdf_path.replace('\\', '/')
@@ -102,11 +104,18 @@ class WebView(QWebEngineView):
         return super().event(e)
 
     def eventFilter(self, source, event):
-        if (event.type() == QEvent.MouseButtonRelease and source is self._glwidget):
+        if event.type() == QEvent.MouseButtonRelease and source is self._glwidget:
             con.pdfViewMouseRelease.emit()
         return super().eventFilter(source, event)
-    def changePDF(self,pdf_path ):
+
+    def changePDF(self, pdf_path):
         self.load(QUrl.fromUserInput('%s?file=%s' % (self.pdf_js_path, pdf_path)))
+        if sys.platform == 'win32' and 'sample' not in pdf_path:
+            if '/' in pdf_path:
+                config.set('history_pdf', pdf_path.split('/')[-1].split('.')[0], pdf_path)
+            else:
+                config.set('history_pdf', pdf_path.split('\\')[-1].split('.')[0], pdf_path)
+            config.write(open('CONFIG.ini', 'w'))
 
 
 class MainWindow(QMainWindow):
@@ -116,7 +125,6 @@ class MainWindow(QMainWindow):
         self.thread_my.start()
 
         self.setWindowTitle("毕业论文小助手")
-
         self.translate_ori = QPlainTextEdit()
         # self.translate_ori.setTextBackgroundColor(QColor(127, 127, 127, 60))
         # self.translate_ori.setTextColor(QColor(0, 0, 0, 0))
@@ -174,17 +182,50 @@ class MainWindow(QMainWindow):
         gbox.setLayout(vbox)
 
         self.pdfWrapper = WebView()
+        self.left_tab_widget = LeftTabWidget(self.pdfWrapper)
         hBoxLayout = QHBoxLayout()
+        hBoxLayout.addWidget(self.left_tab_widget)
         hBoxLayout.addWidget(self.pdfWrapper)
         hBoxLayout.addWidget(gbox)
-        hBoxLayout.setStretch(0, 9)
-        hBoxLayout.setStretch(1, 3)
+        hBoxLayout.setStretch(0, 1)
+        hBoxLayout.setStretch(1, 40)
+        hBoxLayout.setStretch(2, 12)
 
         widget = QWidget()
         widget.setLayout(hBoxLayout)
         self.setCentralWidget(widget)
         self.recent_text = ""
         self.showMaximized()
+
+        # create the menu bar
+        self.menu_bar = self.menuBar()
+        self.file = self.menu_bar.addMenu('File')
+
+        self.open_pdf = QAction('Open PDF', self)
+        self.open_pdf.setShortcut('Ctrl+O')
+        self.file.addAction(self.open_pdf)
+
+        self.open_dir = QAction('Open Folder', self)
+        self.open_dir.setShortcut('Ctrl+Shift+O')
+        self.file.addAction(self.open_dir)
+
+        # self.file is listening
+        self.file.triggered[QAction].connect(self.openDir)
+
+    def openDir(self, qaction):
+        if qaction.text() == 'Open PDF':
+            fd = QFileDialog.getOpenFileName(self, 'Choose a PDF', './', 'All(*.*);;PDF(*.pdf)', 'PDF(*.pdf)')
+            self.pdfWrapper.changePDF(fd[0])
+        elif qaction.text() == 'Open PDFs':
+            fd = QFileDialog.getOpenFileNames(self, 'Choose PDFs', './', 'All(*.*);;PDF(*.pdf)', 'PDF(*.pdf)')
+            print(fd)
+        elif qaction.text() == 'Open Folder':
+            fd = QFileDialog.getExistingDirectory(self, 'Choose a directory', './')
+            # update the roots in CONFIG.ini
+            config.set('local_pdf', 'roots', fd)
+            config.write(open('CONFIG.ini', 'w'))
+            # update the local_pdf view in UI
+            self.left_tab_widget.updateLocal()
 
     def updateTranslation(self, cur_text):
         self.translate_res.clear()

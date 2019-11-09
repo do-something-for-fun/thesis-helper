@@ -1,0 +1,598 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="e5434284-d2d6-40d8-9028-95be1b6ea9ea" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CONFIG.ini" beforeDir="false" afterPath="$PROJECT_DIR$/CONFIG.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/thesis-helper.py" beforeDir="false" afterPath="$PROJECT_DIR$/thesis-helper.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/thesisUtils/LeftTabWidget.py" beforeDir="false" afterPath="$PROJECT_DIR$/thesisUtils/LeftTabWidget.py" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="714120503">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="10" />
+          <entry key="project.open.time.0" value="1" />
+          <entry key="project.open.time.11" value="1" />
+          <entry key="project.open.time.12" value="1" />
+          <entry key="project.open.time.13" value="1" />
+          <entry key="project.open.time.14" value="3" />
+          <entry key="project.open.time.15" value="2" />
+          <entry key="project.open.time.7" value="1" />
+          <entry key="project.opened" value="10" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="css" value="1" />
+          <entry key="gitignore" value="2" />
+          <entry key="html" value="2" />
+          <entry key="ini" value="7" />
+          <entry key="js" value="6" />
+          <entry key="map" value="1" />
+          <entry key="png" value="8" />
+          <entry key="py" value="35" />
+          <entry key="qss" value="1" />
+          <entry key="svg" value="1" />
+          <entry key="txt" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="CSS" value="1" />
+          <entry key="HTML" value="2" />
+          <entry key="Image" value="8" />
+          <entry key="Ini" value="5" />
+          <entry key="JavaScript" value="6" />
+          <entry key="PLAIN_TEXT" value="7" />
+          <entry key="Python" value="35" />
+          <entry key="SVG" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="Python Console" value="100" />
+          <entry key="css" value="38" />
+          <entry key="html" value="63" />
+          <entry key="ini" value="94" />
+          <entry key="js" value="443" />
+          <entry key="py" value="5706" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="CSS" value="38" />
+          <entry key="HTML" value="63" />
+          <entry key="Ini" value="92" />
+          <entry key="JavaScript" value="443" />
+          <entry key="PLAIN_TEXT" value="2" />
+          <entry key="Python" value="5806" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/thesis-helper.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="224">
+              <caret line="220" column="21" lean-forward="true" selection-start-line="220" selection-start-column="21" selection-end-line="220" selection-end-column="21" />
+              <folding>
+                <element signature="e#161#170#0" expanded="true" />
+                <marker date="1573275315943" expanded="true" signature="7545:8095" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/thesisUtils/LeftTabWidget.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="177">
+              <caret line="117" column="27" lean-forward="true" selection-start-line="117" selection-start-column="27" selection-end-line="117" selection-end-column="27" />
+              <folding>
+                <element signature="e#0#10#0" expanded="true" />
+                <marker date="1573275509782" expanded="true" signature="3460:3496" ph="..." />
+                <marker date="1573275509782" expanded="true" signature="3539:3685" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>var defaultoption</find>
+      <find>document_outline</find>
+      <find>document_outline_label</find>
+      <find>Document Outline</find>
+      <find>viewOutline</find>
+      <find>SidebarView</find>
+      <find>outlineButton</find>
+      <find>_pdf_outline_viewer</find>
+      <find>_ref</find>
+      <find>outline</find>
+      <find>changePDF</find>
+      <find>dropEvent</find>
+      <find>Layout</find>
+      <find>WebView</find>
+      <find>LeftTabWidget</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/pdfjs/web/viewer.html" />
+        <option value="$PROJECT_DIR$/pdfjs/web/viewer.css" />
+        <option value="$PROJECT_DIR$/pdfjs/web/viewer.js" />
+        <option value="$PROJECT_DIR$/docs/QListWidgetQSS.qss" />
+        <option value="$PROJECT_DIR$/thesisUtils/__init__.py" />
+        <option value="$PROJECT_DIR$/thesisUtils/configure.py" />
+        <option value="$PROJECT_DIR$/thesis-helper.py" />
+        <option value="$PROJECT_DIR$/thesisUtils/LeftTabWidget.py" />
+        <option value="$PROJECT_DIR$/CONFIG.ini" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="284" />
+    <option name="y" value="135" />
+    <option name="width" value="1440" />
+    <option name="height" value="780" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="thesis-helper" type="b2602c69:ProjectViewProjectNode" />
+              <item name="thesis-helper" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="thesis-helper" type="b2602c69:ProjectViewProjectNode" />
+              <item name="thesis-helper" type="462c0819:PsiDirectoryNode" />
+              <item name="thesisUtils" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Python.thesis-helper">
+    <configuration name="LeftTabWidget" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="thesis-helper" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/thesisUtils" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/thesisUtils/LeftTabWidget.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="configure" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="thesis-helper" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/thesisUtils" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/thesisUtils/configure.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="thesis-helper" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="thesis-helper" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/thesis-helper.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.LeftTabWidget" />
+      <item itemvalue="Python.thesis-helper" />
+      <item itemvalue="Python.configure" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.thesis-helper" />
+        <item itemvalue="Python.LeftTabWidget" />
+        <item itemvalue="Python.configure" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e5434284-d2d6-40d8-9028-95be1b6ea9ea" name="Default Changelist" comment="" />
+      <created>1573116706381</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1573116706381</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14278187" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.2790445" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.35179153" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32899022" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32899022" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32899022" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Python Console" order="10" weight="0.32899022" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+    <layout-to-restore>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14278187" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.38327906" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.35179153" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32899022" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32899022" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32899022" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Python Console" order="10" weight="0.32899022" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout-to-restore>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="PythonConfigurationType">
+        <watch expression="config" language="Python" />
+        <watch expression="b" language="Python" />
+        <watch expression="names" language="Python" />
+      </configuration>
+    </watches-manager>
+  </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="evaluateCodeFragment">
+      <expression>
+        <expression-string>b = config['local_pdf']['roots']</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>print(config['local_pdf']['roots'])</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>b = config.items()
+names = []
+for name, value in b:
+    names.append(name)</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>b = config.items()</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>b = config.items()
+print(b)</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>print(config.items())</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>print(config.keys)</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>print(config.keys())</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>print(config)</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+    </expressions>
+    <expressions id="watch">
+      <expression>
+        <expression-string>names</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>b</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>config</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/dictionary/words_alpha.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3477" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1537" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/thesisUtils/text_filter.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="483">
+          <caret line="21" column="25" lean-forward="true" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharmCE2018.2/system/python_stubs/-791851423/PyQt5/QtWebEngineWidgets.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2244">
+          <caret line="1387" column="6" selection-start-line="1387" selection-start-column="6" selection-end-line="1387" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharmCE2018.2/system/python_stubs/-791851423/builtins.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1439">
+          <caret line="5246" column="8" selection-start-line="5246" selection-start-column="8" selection-end-line="5246" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pdfjs/web/images/annotation-check.svg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharmCE2018.2/system/python_stubs/-791851423/PyQt5/QtCore/QUrl.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="392">
+          <caret line="61" column="8" selection-start-line="61" selection-start-column="8" selection-end-line="61" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pdfjs/web/viewer.js.map">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pdfjs/web/images/toolbarButton-viewOutline.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pdfjs/web/images/toolbarButton-viewOutline-rtl@2x.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pdfjs/web/images/toolbarButton-viewThumbnail.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pdfjs/web/images/treeitem-collapsed.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pdfjs/web/images/toolbarButton-viewOutline@2x.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pdfjs/web/images/toolbarButton-viewOutline-rtl.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pdfjs/web/images/treeitem-expanded.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pdfjs/build/pdf.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1114" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pdfjs/web/viewer.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2223">
+          <caret line="117" selection-start-line="117" selection-end-line="117" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pdfjs/web/viewer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102885">
+          <caret line="5415" column="9" selection-start-line="5415" selection-start-column="9" selection-end-line="5415" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pdfjs/web/viewer.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="262">
+          <caret line="1715" column="28" selection-start-line="1715" selection-start-column="28" selection-end-line="1715" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/QListWidgetQSS.qss" />
+    <entry file="file://$USER_HOME$/.PyCharmCE2018.2/system/python_stubs/-791851423/PyQt5/QtWidgets/QStackedWidget.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="174" column="8" selection-start-line="174" selection-start-column="8" selection-end-line="174" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/Anaconda3/Lib/site-packages/qtawesome/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2566">
+          <caret line="40" column="4" selection-start-line="40" selection-start-column="4" selection-end-line="40" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/thesisUtils/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="94" selection-start-column="94" selection-end-column="94" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/Anaconda3/Lib/codecs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="310" selection-start-line="310" selection-end-line="310" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/Anaconda3/Lib/configparser.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="277">
+          <caret line="958" selection-start-line="958" selection-end-line="958" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/thesisUtils/controller.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/thesisUtils/watch_clip.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="22" column="16" selection-start-line="22" selection-start-column="16" selection-end-line="22" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/thesisUtils/translate.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/thesisUtils/configure.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="5" column="40" lean-forward="true" selection-start-line="5" selection-start-column="40" selection-end-line="5" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CONFIG.ini">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="3" column="13" lean-forward="true" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/thesisUtils/LeftTabWidget.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="117" column="27" lean-forward="true" selection-start-line="117" selection-start-column="27" selection-end-line="117" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+            <marker date="1573275509782" expanded="true" signature="3460:3496" ph="..." />
+            <marker date="1573275509782" expanded="true" signature="3539:3685" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/thesis-helper.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="220" column="21" lean-forward="true" selection-start-line="220" selection-start-column="21" selection-end-line="220" selection-end-column="21" />
+          <folding>
+            <element signature="e#161#170#0" expanded="true" />
+            <marker date="1573275315943" expanded="true" signature="7545:8095" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

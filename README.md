@@ -73,7 +73,7 @@ cd thesis-helper
 1. 命令行输入如下指令即可。
 
 ```shell
-git clone git@github.com:muhualing/thesis-helper.git
+git clone git@github.com:do-something-for-fun/thesis-helper.git
 cd thesis-helper
 pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
 python thesis-helper
@@ -83,7 +83,7 @@ python thesis-helper
 
 3. 选中要翻译的文本，然后侧边栏就有中文翻译结果了
 
-#　致谢
+# 致谢
 
 感谢杨帅昊(QSCTech-Sange)、Jarvisss、Wye(Lucas-Wye)、dendenxu、qiqiph和ametake对`thesis-helper`做出的贡献(提交过 Issue 或者 PR)。
 

@@ -2,3 +2,4 @@ pyqt5
 requests
 pyqtWebEngine
 googletrans
+qtawesome

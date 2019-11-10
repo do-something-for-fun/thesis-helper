@@ -83,7 +83,6 @@ python thesis-helper
 
 3. 选中要翻译的文本，然后侧边栏就有中文翻译结果了
 
-
 # 致谢
 
 感谢杨帅昊(QSCTech-Sange)、Jarvisss、Wye(Lucas-Wye)、dendenxu、qiqiph和ametake对`thesis-helper`做出的贡献(提交过 Issue 或者 PR)。

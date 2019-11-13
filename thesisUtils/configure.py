@@ -1,6 +1,9 @@
 import configparser
 import os
+import sys
 config = configparser.ConfigParser()
 config_path = os.path.join(os.getcwd(), "CONFIG.ini")
-# config_path = 'G:\\thesis-helper\\CONFIG.ini'
-config.read(config_path, encoding="GBK")
+if sys.platform == "win32":
+    config.read(config_path, encoding="GBK")
+else:
+    config.read(config_path)

@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e5434284-d2d6-40d8-9028-95be1b6ea9ea" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CONFIG.ini" beforeDir="false" afterPath="$PROJECT_DIR$/CONFIG.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/thesis-helper.py" beforeDir="false" afterPath="$PROJECT_DIR$/thesis-helper.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/thesisUtils/LeftTabWidget.py" beforeDir="false" afterPath="$PROJECT_DIR$/thesisUtils/LeftTabWidget.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,15 +18,16 @@
     <session id="714120503">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="10" />
+          <entry key="project.closed" value="14" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.12" value="1" />
           <entry key="project.open.time.13" value="1" />
-          <entry key="project.open.time.14" value="3" />
+          <entry key="project.open.time.14" value="4" />
           <entry key="project.open.time.15" value="2" />
+          <entry key="project.open.time.4" value="4" />
           <entry key="project.open.time.7" value="1" />
-          <entry key="project.opened" value="10" />
+          <entry key="project.opened" value="15" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -33,14 +35,14 @@
           <entry key="css" value="1" />
           <entry key="gitignore" value="2" />
           <entry key="html" value="2" />
-          <entry key="ini" value="7" />
+          <entry key="ini" value="10" />
           <entry key="js" value="6" />
           <entry key="map" value="1" />
           <entry key="png" value="8" />
-          <entry key="py" value="35" />
+          <entry key="py" value="36" />
           <entry key="qss" value="1" />
           <entry key="svg" value="1" />
-          <entry key="txt" value="1" />
+          <entry key="txt" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
@@ -48,10 +50,10 @@
           <entry key="CSS" value="1" />
           <entry key="HTML" value="2" />
           <entry key="Image" value="8" />
-          <entry key="Ini" value="5" />
+          <entry key="Ini" value="8" />
           <entry key="JavaScript" value="6" />
-          <entry key="PLAIN_TEXT" value="7" />
-          <entry key="Python" value="35" />
+          <entry key="PLAIN_TEXT" value="10" />
+          <entry key="Python" value="36" />
           <entry key="SVG" value="1" />
         </counts>
       </usages-collector>
@@ -60,47 +62,44 @@
           <entry key="Python Console" value="100" />
           <entry key="css" value="38" />
           <entry key="html" value="63" />
-          <entry key="ini" value="94" />
+          <entry key="ini" value="106" />
           <entry key="js" value="443" />
-          <entry key="py" value="5706" />
+          <entry key="py" value="5788" />
+          <entry key="txt" value="10" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="38" />
           <entry key="HTML" value="63" />
-          <entry key="Ini" value="92" />
+          <entry key="Ini" value="104" />
           <entry key="JavaScript" value="443" />
-          <entry key="PLAIN_TEXT" value="2" />
-          <entry key="Python" value="5806" />
+          <entry key="PLAIN_TEXT" value="12" />
+          <entry key="Python" value="5888" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/thesis-helper.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="224">
-              <caret line="220" column="21" lean-forward="true" selection-start-line="220" selection-start-column="21" selection-end-line="220" selection-end-column="21" />
-              <folding>
-                <element signature="e#161#170#0" expanded="true" />
-                <marker date="1573275315943" expanded="true" signature="7545:8095" ph="..." />
-              </folding>
+            <state relative-caret-position="175">
+              <caret line="7" column="10" lean-forward="true" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/thesisUtils/LeftTabWidget.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="177">
-              <caret line="117" column="27" lean-forward="true" selection-start-line="117" selection-start-column="27" selection-end-line="117" selection-end-column="27" />
+            <state relative-caret-position="247">
+              <caret line="124" lean-forward="true" selection-start-line="124" selection-end-line="124" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
-                <marker date="1573275509782" expanded="true" signature="3460:3496" ph="..." />
-                <marker date="1573275509782" expanded="true" signature="3539:3685" ph="..." />
+                <marker date="1573630273328" expanded="true" signature="3460:3496" ph="..." />
+                <marker date="1573630273328" expanded="true" signature="3539:3685" ph="..." />
               </folding>
             </state>
           </provider>
@@ -138,8 +137,9 @@
         <option value="$PROJECT_DIR$/pdfjs/web/viewer.js" />
         <option value="$PROJECT_DIR$/docs/QListWidgetQSS.qss" />
         <option value="$PROJECT_DIR$/thesisUtils/__init__.py" />
-        <option value="$PROJECT_DIR$/thesisUtils/configure.py" />
         <option value="$PROJECT_DIR$/thesis-helper.py" />
+        <option value="$PROJECT_DIR$/thesisUtils/configure.py" />
+        <option value="$PROJECT_DIR$/requirements.txt" />
         <option value="$PROJECT_DIR$/thesisUtils/LeftTabWidget.py" />
         <option value="$PROJECT_DIR$/CONFIG.ini" />
       </list>
@@ -159,6 +159,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -175,7 +176,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -301,7 +301,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.2790445" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.2790445" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.35179153" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -559,37 +559,40 @@ print(b)</expression-string>
     </entry>
     <entry file="file://$PROJECT_DIR$/thesisUtils/configure.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="5" column="40" lean-forward="true" selection-start-line="5" selection-start-column="40" selection-end-line="5" selection-end-column="40" />
+        <state relative-caret-position="145">
+          <caret line="5" column="27" lean-forward="true" selection-start-line="5" selection-start-column="27" selection-end-line="5" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/requirements.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="4" column="9" lean-forward="true" selection-start-line="4" selection-start-column="9" selection-end-line="4" selection-end-column="9" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/CONFIG.ini">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="3" column="13" lean-forward="true" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/thesisUtils/LeftTabWidget.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="117" column="27" lean-forward="true" selection-start-line="117" selection-start-column="27" selection-end-line="117" selection-end-column="27" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-            <marker date="1573275509782" expanded="true" signature="3460:3496" ph="..." />
-            <marker date="1573275509782" expanded="true" signature="3539:3685" ph="..." />
-          </folding>
+        <state relative-caret-position="19">
+          <caret line="1" column="12" selection-start-line="1" selection-start-column="12" selection-end-line="1" selection-end-column="12" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/thesis-helper.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="220" column="21" lean-forward="true" selection-start-line="220" selection-start-column="21" selection-end-line="220" selection-end-column="21" />
+        <state relative-caret-position="175">
+          <caret line="7" column="10" lean-forward="true" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/thesisUtils/LeftTabWidget.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="124" lean-forward="true" selection-start-line="124" selection-end-line="124" />
           <folding>
-            <element signature="e#161#170#0" expanded="true" />
-            <marker date="1573275315943" expanded="true" signature="7545:8095" ph="..." />
+            <element signature="e#0#10#0" expanded="true" />
+            <marker date="1573630273328" expanded="true" signature="3460:3496" ph="..." />
+            <marker date="1573630273328" expanded="true" signature="3539:3685" ph="..." />
           </folding>
         </state>
       </provider>

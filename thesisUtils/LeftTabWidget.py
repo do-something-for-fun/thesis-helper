@@ -118,15 +118,17 @@ class LeftTabWidget(QWidget):
         def _getFullPath():
             for root, dirs, files in os.walk(roots, topdown=True):
                 for name in files:
-                    if name.split('.')[1] == 'pdf':
-                        full_path = os.path.join(root, name)
-                        yield full_path.replace('\\', '/')
+                    if '.' in name:
+                        if name.split('.')[-1] == 'pdf':
+                            full_path = os.path.join(root, name)
+                            yield full_path.replace('\\', '/')
 
         def _getFullName():
             for root, dirs, files in os.walk(roots, topdown=True):
                 for name in files:
-                    if name.split('.')[1] == 'pdf':
-                        yield name.split('.')[0]
+                    if '.' in name:
+                        if name.split('.')[-1] == 'pdf':
+                            yield name.split('.')[0]
 
         return list(_getFullPath()), list(_getFullName())
 

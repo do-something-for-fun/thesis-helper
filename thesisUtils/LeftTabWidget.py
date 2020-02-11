@@ -3,7 +3,8 @@ from PyQt5.QtWidgets import (
     QWidget, QHBoxLayout, QVBoxLayout, QMainWindow,
     QGroupBox,QApplication, QLabel, QPlainTextEdit,
     QComboBox, QAction, QMenuBar, QMenu, QFileDialog,
-    QPushButton, QStackedWidget, QListWidget, QSizePolicy
+    QPushButton, QStackedWidget, QListWidget, QSizePolicy,
+    QListWidgetItem
 )
 from PyQt5.QtCore import *
 from PyQt5.QtGui import *
@@ -28,7 +29,7 @@ class LeftTabWidget(QWidget):
         self.hide_button = QPushButton(qtawesome.icon('fa.chevron-circle-left', color='red'), '')
         self.button_layout.addWidget(self.hide_button)
 
-        self.update_button = QPushButton(qtawesome.icon('fa.undo', color='red'), '')
+        self.update_button = QPushButton(qtawesome.icon('fa.refresh', color='red'), '')
         self.button_layout.addWidget(self.update_button)
 
         self.local_pdf = QPushButton(qtawesome.icon('fa.home', color='red'), '')
@@ -80,9 +81,19 @@ class LeftTabWidget(QWidget):
         self.history_pdf.clicked.connect(self.historyPDFClicked)
         self.pushButton3.clicked.connect(self.on_pushButton3_clicked)
         self.hide_button.clicked.connect(self.hideButtonClicked)
+
         # for item
         self.list_widget_of_local_pdf.itemDoubleClicked.connect(self.localListWidgetDBClicked)
         self.list_widget_of_history_pdf.itemDoubleClicked.connect(self.historyListWidgetDBClicked)
+        # right clicked in the left tab widget
+        self.chosen_item = QListWidgetItem()
+        self.list_widget_of_history_pdf.setContextMenuPolicy(Qt.CustomContextMenu)
+        self.list_widget_of_history_pdf.customContextMenuRequested.connect(self.showRightClickedMenu)
+
+        self.right_clicked_menu = QMenu(self.list_widget_of_history_pdf)
+        self.delete_action = QAction(qtawesome.icon('fa.close', color='red'), '删除', self.right_clicked_menu)
+        self.right_clicked_menu.addAction(self.delete_action)
+        self.delete_action.triggered.connect(self.rightClickedEvent)
 
         # hover event definition
         # for button
@@ -92,6 +103,20 @@ class LeftTabWidget(QWidget):
         self.hide_button.setToolTip('侧边栏显示/隐藏')
         self.pushButton3.setToolTip('待加入')
 
+    def rightClickedEvent(self):
+        if self.sender().text() == '删除':
+            print('删除第', self.list_widget_of_history_pdf.row(self.chosen_item), '个条目')
+            tp = config.items('history_pdf')
+            config.remove_option('history_pdf', tp[self.list_widget_of_history_pdf.row(self.chosen_item)][0])
+            config.write(open('CONFIG.ini', 'w', encoding='utf-8'))
+            self._updateHistory()
+    
+    def showRightClickedMenu(self, pos):
+        # get exact item want to deal with
+        self.chosen_item = self.list_widget_of_history_pdf.itemAt(pos)
+        # show the menu where the mouse clicked
+        self.right_clicked_menu.exec_(QCursor.pos())
+    
     def updateButtonClicked(self):
         self._updateHistory()
 

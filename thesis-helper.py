@@ -13,7 +13,6 @@ sysstr = platform.system()
 is_win = is_linux = is_mac = False
 
 if sysstr == "Windows":
-
     is_win = True
 elif sysstr == "Linux":
     is_linux = True
@@ -115,7 +114,7 @@ class WebView(QWebEngineView):
                 config.set('history_pdf', pdf_path.split('/')[-1].split('.')[0], pdf_path)
             else:
                 config.set('history_pdf', pdf_path.split('\\')[-1].split('.')[0], pdf_path)
-            config.write(open('CONFIG.ini', 'w'))
+            config.write(open('CONFIG.ini', 'w', encoding='utf-8'))
 
 
 class MainWindow(QMainWindow):
@@ -223,7 +222,7 @@ class MainWindow(QMainWindow):
             fd = QFileDialog.getExistingDirectory(self, 'Choose a directory', './')
             # update the roots in CONFIG.ini
             config.set('local_pdf', 'roots', fd)
-            config.write(open('CONFIG.ini', 'w'))
+            config.write(open('CONFIG.ini', 'w', encoding='utf-8'))
             # update the local_pdf view in UI
             self.left_tab_widget.updateLocal()
 

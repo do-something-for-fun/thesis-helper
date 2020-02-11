@@ -1,5 +1,10 @@
 import sys
-from PyQt5.QtWidgets import *
+from PyQt5.QtWidgets import (
+    QWidget, QHBoxLayout, QVBoxLayout, QMainWindow,
+    QGroupBox,QApplication, QLabel, QPlainTextEdit,
+    QComboBox, QAction, QMenuBar, QMenu, QFileDialog,
+    QPushButton, QStackedWidget, QListWidget, QSizePolicy
+)
 from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 import qtawesome
@@ -20,10 +25,10 @@ class LeftTabWidget(QWidget):
         self.main_layout.addWidget(self.left_widget)
         self.button_layout = QVBoxLayout(self.left_widget)
 
-        self.hide_button = QPushButton(qtawesome.icon('fa.circle', color='red'), '')
+        self.hide_button = QPushButton(qtawesome.icon('fa.chevron-circle-left', color='red'), '')
         self.button_layout.addWidget(self.hide_button)
 
-        self.update_button = QPushButton(qtawesome.icon('fa.cloud', color='red'), '')
+        self.update_button = QPushButton(qtawesome.icon('fa.undo', color='red'), '')
         self.button_layout.addWidget(self.update_button)
 
         self.local_pdf = QPushButton(qtawesome.icon('fa.home', color='red'), '')
@@ -79,6 +84,14 @@ class LeftTabWidget(QWidget):
         self.list_widget_of_local_pdf.itemDoubleClicked.connect(self.localListWidgetDBClicked)
         self.list_widget_of_history_pdf.itemDoubleClicked.connect(self.historyListWidgetDBClicked)
 
+        # hover event definition
+        # for button
+        self.update_button.setToolTip('更新历史记录')
+        self.local_pdf.setToolTip('当前文件夹下PDF')
+        self.history_pdf.setToolTip('历史记录')
+        self.hide_button.setToolTip('侧边栏显示/隐藏')
+        self.pushButton3.setToolTip('待加入')
+
     def updateButtonClicked(self):
         self._updateHistory()
 
@@ -94,6 +107,12 @@ class LeftTabWidget(QWidget):
 
     def hideButtonClicked(self):
         self.stacked_widget.setHidden(not self.stacked_widget.isHidden())
+
+        if self.stacked_widget.isHidden():
+            self.hide_button.setIcon(qtawesome.icon('fa.chevron-circle-right', color='red'))
+        else:
+            self.hide_button.setIcon(qtawesome.icon('fa.chevron-circle-left', color='red'))
+
         self.local_pdf.setEnabled(not self.stacked_widget.isHidden())
         self.history_pdf.setEnabled(not self.stacked_widget.isHidden())
         self.pushButton3.setEnabled(not self.stacked_widget.isHidden())
